@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace TLWebsite
+namespace TLWebsite.API
 {
     public static class WebApiConfig
     {
