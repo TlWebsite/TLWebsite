@@ -10,8 +10,7 @@
 namespace TLWebsite.Data
 {
     using System;
-    using System.Collections.Generic;
-    
+
     public partial class TextInsert
     {
         public int TextInsertID { get; set; }

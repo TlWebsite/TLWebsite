@@ -77,7 +77,10 @@
     <Compile Include="BlogPost.cs">
       <DependentUpon>TLWebsiteDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\ILogger.cs" />
+    <Compile Include="Interfaces\ILogLevel.cs" />
     <Compile Include="Logger.cs" />
+    <Compile Include="LogLevel.cs" />
     <Compile Include="MediaInsert.cs">
       <DependentUpon>TLWebsiteDB.tt</DependentUpon>
     </Compile>
@@ -121,6 +124,7 @@
     <Compile Include="User.cs">
       <DependentUpon>TLWebsiteDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Utils\LogLevelsEnum.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -166,5 +170,6 @@
       <LastGenOutput>TLWebsiteDB.cs</LastGenOutput>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

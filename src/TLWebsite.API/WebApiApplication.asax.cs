@@ -1,5 +1,5 @@
 ﻿// Copyright (c) Lakithu. All rights reserved.
-
+[assembly: log4net.Config.XmlConfigurator(ConfigFile = "Web.config", Watch = true)]
 namespace TLWebsite.API
 {
     using System.Web.Http;

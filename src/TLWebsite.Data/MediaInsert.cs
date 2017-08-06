@@ -10,8 +10,7 @@
 namespace TLWebsite.Data
 {
     using System;
-    using System.Collections.Generic;
-    
+
     public partial class MediaInsert
     {
         public int MediaInsertID { get; set; }

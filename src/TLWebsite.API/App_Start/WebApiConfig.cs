@@ -3,6 +3,7 @@
 namespace TLWebsite.API
 {
     using System.Web.Http;
+    using TLWebsite.Data;
 
     public static class WebApiConfig
     {

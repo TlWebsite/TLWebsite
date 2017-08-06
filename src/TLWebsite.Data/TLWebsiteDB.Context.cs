@@ -9,10 +9,9 @@
 
 namespace TLWebsite.Data
 {
-    using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
+
     public partial class TLWebsiteDTEEntities1 : DbContext
     {
         public TLWebsiteDTEEntities1()
