@@ -9,13 +9,14 @@
 
 namespace TLWebsite.Data
 {
+    using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-
-    public partial class TLWebsiteDTEEntities1 : DbContext
+    
+    public partial class Entities : DbContext
     {
-        public TLWebsiteDTEEntities1()
-            : base("name=TLWebsiteDTEEntities1")
+        public Entities()
+            : base("name=Entities")
         {
         }
     
@@ -24,16 +25,16 @@ namespace TLWebsite.Data
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<BlogComment> BlogComments { get; set; }
-        public virtual DbSet<BlogPost> BlogPosts { get; set; }
-        public virtual DbSet<Medium> Media { get; set; }
-        public virtual DbSet<MediaInsert> MediaInserts { get; set; }
-        public virtual DbSet<MediaType> MediaTypes { get; set; }
-        public virtual DbSet<PostTag> PostTags { get; set; }
-        public virtual DbSet<Story> Stories { get; set; }
-        public virtual DbSet<StoryComment> StoryComments { get; set; }
-        public virtual DbSet<StoryPost> StoryPosts { get; set; }
-        public virtual DbSet<TextInsert> TextInserts { get; set; }
-        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<BlogComment> BlogComment { get; set; }
+        public virtual DbSet<BlogPost> BlogPost { get; set; }
+        public virtual DbSet<Media> Media { get; set; }
+        public virtual DbSet<MediaInsert> MediaInsert { get; set; }
+        public virtual DbSet<MediaType> MediaType { get; set; }
+        public virtual DbSet<PostTag> PostTag { get; set; }
+        public virtual DbSet<Story> Story { get; set; }
+        public virtual DbSet<StoryComment> StoryComment { get; set; }
+        public virtual DbSet<StoryPost> StoryPost { get; set; }
+        public virtual DbSet<TextInsert> TextInsert { get; set; }
+        public virtual DbSet<User> User { get; set; }
     }
 }

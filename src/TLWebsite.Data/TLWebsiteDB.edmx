@@ -974,15 +974,15 @@
           <Property Name="ArchivedAt" Type="DateTime" Precision="3" />
           <Property Name="ArchivedBy" Type="Int32" />
           <Property Name="IsActive" Type="Boolean" />
-          <NavigationProperty Name="BlogComments" Relationship="Self.FK_BlogComment_Blog" FromRole="BlogPost" ToRole="BlogComment" />
+          <NavigationProperty Name="BlogComment" Relationship="Self.FK_BlogComment_Blog" FromRole="BlogPost" ToRole="BlogComment" />
           <NavigationProperty Name="User" Relationship="Self.FK_BlogPost_UserArchived" FromRole="BlogPost" ToRole="User" />
           <NavigationProperty Name="User1" Relationship="Self.FK_BlogPost_UserCreated" FromRole="BlogPost" ToRole="User" />
           <NavigationProperty Name="User2" Relationship="Self.FK_BlogPost_UserUpdated" FromRole="BlogPost" ToRole="User" />
-          <NavigationProperty Name="MediaInserts" Relationship="Self.FK_MediaInsert_BlogPost" FromRole="BlogPost" ToRole="MediaInsert" />
-          <NavigationProperty Name="TextInserts" Relationship="Self.FK_TextInsert_BlogPost" FromRole="BlogPost" ToRole="TextInsert" />
-          <NavigationProperty Name="PostTags" Relationship="Self.PostTag_BlogPost" FromRole="BlogPost" ToRole="PostTag" />
+          <NavigationProperty Name="MediaInsert" Relationship="Self.FK_MediaInsert_BlogPost" FromRole="BlogPost" ToRole="MediaInsert" />
+          <NavigationProperty Name="TextInsert" Relationship="Self.FK_TextInsert_BlogPost" FromRole="BlogPost" ToRole="TextInsert" />
+          <NavigationProperty Name="PostTag" Relationship="Self.PostTag_BlogPost" FromRole="BlogPost" ToRole="PostTag" />
         </EntityType>
-        <EntityType Name="Medium">
+        <EntityType Name="Media">
           <Key>
             <PropertyRef Name="MediaID" />
           </Key>
@@ -1002,7 +1002,7 @@
           <NavigationProperty Name="User" Relationship="Self.FK_Media_UserArchived" FromRole="Media" ToRole="User" />
           <NavigationProperty Name="User1" Relationship="Self.FK_Media_UserCreated" FromRole="Media" ToRole="User" />
           <NavigationProperty Name="User2" Relationship="Self.FK_Media_UserUpdated" FromRole="Media" ToRole="User" />
-          <NavigationProperty Name="MediaInserts" Relationship="Self.FK_MediaInsert_Media" FromRole="Media" ToRole="MediaInsert" />
+          <NavigationProperty Name="MediaInsert" Relationship="Self.FK_MediaInsert_Media" FromRole="Media" ToRole="MediaInsert" />
         </EntityType>
         <EntityType Name="MediaInsert">
           <Key>
@@ -1023,7 +1023,7 @@
           <Property Name="ArchivedBy" Type="Int32" />
           <Property Name="IsActive" Type="Boolean" />
           <NavigationProperty Name="BlogPost" Relationship="Self.FK_MediaInsert_BlogPost" FromRole="MediaInsert" ToRole="BlogPost" />
-          <NavigationProperty Name="Medium" Relationship="Self.FK_MediaInsert_Media" FromRole="MediaInsert" ToRole="Media" />
+          <NavigationProperty Name="Media" Relationship="Self.FK_MediaInsert_Media" FromRole="MediaInsert" ToRole="Media" />
           <NavigationProperty Name="StoryPost" Relationship="Self.FK_MediaInsert_StoryPost" FromRole="MediaInsert" ToRole="StoryPost" />
           <NavigationProperty Name="User" Relationship="Self.FK_MediaInsert_UserArchived" FromRole="MediaInsert" ToRole="User" />
           <NavigationProperty Name="User1" Relationship="Self.FK_MediaInsert_UserCreated" FromRole="MediaInsert" ToRole="User" />
@@ -1054,8 +1054,8 @@
           <NavigationProperty Name="User" Relationship="Self.FK_PostTag_UserArchived" FromRole="PostTag" ToRole="User" />
           <NavigationProperty Name="User1" Relationship="Self.FK_PostTag_UserCreated" FromRole="PostTag" ToRole="User" />
           <NavigationProperty Name="User2" Relationship="Self.FK_PostTag_UserUpdated" FromRole="PostTag" ToRole="User" />
-          <NavigationProperty Name="BlogPosts" Relationship="Self.PostTag_BlogPost" FromRole="PostTag" ToRole="BlogPost" />
-          <NavigationProperty Name="StoryPosts" Relationship="Self.PostTag_StoryPost" FromRole="PostTag" ToRole="StoryPost" />
+          <NavigationProperty Name="BlogPost" Relationship="Self.PostTag_BlogPost" FromRole="PostTag" ToRole="BlogPost" />
+          <NavigationProperty Name="StoryPost" Relationship="Self.PostTag_StoryPost" FromRole="PostTag" ToRole="StoryPost" />
         </EntityType>
         <EntityType Name="Story">
           <Key>
@@ -1074,7 +1074,7 @@
           <NavigationProperty Name="User" Relationship="Self.FK_Story_UserArchived" FromRole="Story" ToRole="User" />
           <NavigationProperty Name="User1" Relationship="Self.FK_Story_UserCreated" FromRole="Story" ToRole="User" />
           <NavigationProperty Name="User2" Relationship="Self.FK_Story_UserUpdated" FromRole="Story" ToRole="User" />
-          <NavigationProperty Name="StoryPosts" Relationship="Self.FK_StoryPost_Story" FromRole="Story" ToRole="StoryPost" />
+          <NavigationProperty Name="StoryPost" Relationship="Self.FK_StoryPost_Story" FromRole="Story" ToRole="StoryPost" />
         </EntityType>
         <EntityType Name="StoryComment">
           <Key>
@@ -1114,14 +1114,14 @@
           <Property Name="ArchivedAt" Type="DateTime" Precision="3" />
           <Property Name="ArchivedBy" Type="Int32" />
           <Property Name="IsActive" Type="Boolean" />
-          <NavigationProperty Name="MediaInserts" Relationship="Self.FK_MediaInsert_StoryPost" FromRole="StoryPost" ToRole="MediaInsert" />
+          <NavigationProperty Name="MediaInsert" Relationship="Self.FK_MediaInsert_StoryPost" FromRole="StoryPost" ToRole="MediaInsert" />
           <NavigationProperty Name="Story" Relationship="Self.FK_StoryPost_Story" FromRole="StoryPost" ToRole="Story" />
-          <NavigationProperty Name="StoryComments" Relationship="Self.FK_StoryComment_Story" FromRole="StoryPost" ToRole="StoryComment" />
+          <NavigationProperty Name="StoryComment" Relationship="Self.FK_StoryComment_Story" FromRole="StoryPost" ToRole="StoryComment" />
           <NavigationProperty Name="User" Relationship="Self.FK_StoryPost_UserArchived" FromRole="StoryPost" ToRole="User" />
           <NavigationProperty Name="User1" Relationship="Self.FK_StoryPost_UserCreated" FromRole="StoryPost" ToRole="User" />
           <NavigationProperty Name="User2" Relationship="Self.FK_StoryPost_UserUpdated" FromRole="StoryPost" ToRole="User" />
-          <NavigationProperty Name="TextInserts" Relationship="Self.FK_TextInsert_StoryPost" FromRole="StoryPost" ToRole="TextInsert" />
-          <NavigationProperty Name="PostTags" Relationship="Self.PostTag_StoryPost" FromRole="StoryPost" ToRole="PostTag" />
+          <NavigationProperty Name="TextInsert" Relationship="Self.FK_TextInsert_StoryPost" FromRole="StoryPost" ToRole="TextInsert" />
+          <NavigationProperty Name="PostTag" Relationship="Self.PostTag_StoryPost" FromRole="StoryPost" ToRole="PostTag" />
         </EntityType>
         <EntityType Name="TextInsert">
           <Key>
@@ -1165,33 +1165,33 @@
           <Property Name="DeactivatedAt" Type="DateTime" Precision="3" />
           <Property Name="DeactivatedBy" Type="Int32" />
           <Property Name="isActive" Type="Boolean" />
-          <NavigationProperty Name="BlogComments" Relationship="Self.FK_BlogComment_UserArchived" FromRole="User" ToRole="BlogComment" />
-          <NavigationProperty Name="BlogComments1" Relationship="Self.FK_BlogComment_UserCreated" FromRole="User" ToRole="BlogComment" />
-          <NavigationProperty Name="BlogComments2" Relationship="Self.FK_BlogComment_UserUpdated" FromRole="User" ToRole="BlogComment" />
-          <NavigationProperty Name="BlogPosts" Relationship="Self.FK_BlogPost_UserArchived" FromRole="User" ToRole="BlogPost" />
-          <NavigationProperty Name="BlogPosts1" Relationship="Self.FK_BlogPost_UserCreated" FromRole="User" ToRole="BlogPost" />
-          <NavigationProperty Name="BlogPosts2" Relationship="Self.FK_BlogPost_UserUpdated" FromRole="User" ToRole="BlogPost" />
+          <NavigationProperty Name="BlogComment" Relationship="Self.FK_BlogComment_UserArchived" FromRole="User" ToRole="BlogComment" />
+          <NavigationProperty Name="BlogComment1" Relationship="Self.FK_BlogComment_UserCreated" FromRole="User" ToRole="BlogComment" />
+          <NavigationProperty Name="BlogComment2" Relationship="Self.FK_BlogComment_UserUpdated" FromRole="User" ToRole="BlogComment" />
+          <NavigationProperty Name="BlogPost" Relationship="Self.FK_BlogPost_UserArchived" FromRole="User" ToRole="BlogPost" />
+          <NavigationProperty Name="BlogPost1" Relationship="Self.FK_BlogPost_UserCreated" FromRole="User" ToRole="BlogPost" />
+          <NavigationProperty Name="BlogPost2" Relationship="Self.FK_BlogPost_UserUpdated" FromRole="User" ToRole="BlogPost" />
           <NavigationProperty Name="Media" Relationship="Self.FK_Media_UserArchived" FromRole="User" ToRole="Media" />
           <NavigationProperty Name="Media1" Relationship="Self.FK_Media_UserCreated" FromRole="User" ToRole="Media" />
           <NavigationProperty Name="Media2" Relationship="Self.FK_Media_UserUpdated" FromRole="User" ToRole="Media" />
-          <NavigationProperty Name="MediaInserts" Relationship="Self.FK_MediaInsert_UserArchived" FromRole="User" ToRole="MediaInsert" />
-          <NavigationProperty Name="MediaInserts1" Relationship="Self.FK_MediaInsert_UserCreated" FromRole="User" ToRole="MediaInsert" />
-          <NavigationProperty Name="MediaInserts2" Relationship="Self.FK_MediaInsert_UserUpdated" FromRole="User" ToRole="MediaInsert" />
-          <NavigationProperty Name="PostTags" Relationship="Self.FK_PostTag_UserArchived" FromRole="User" ToRole="PostTag" />
-          <NavigationProperty Name="PostTags1" Relationship="Self.FK_PostTag_UserCreated" FromRole="User" ToRole="PostTag" />
-          <NavigationProperty Name="PostTags2" Relationship="Self.FK_PostTag_UserUpdated" FromRole="User" ToRole="PostTag" />
-          <NavigationProperty Name="Stories" Relationship="Self.FK_Story_UserArchived" FromRole="User" ToRole="Story" />
-          <NavigationProperty Name="Stories1" Relationship="Self.FK_Story_UserCreated" FromRole="User" ToRole="Story" />
-          <NavigationProperty Name="Stories2" Relationship="Self.FK_Story_UserUpdated" FromRole="User" ToRole="Story" />
-          <NavigationProperty Name="StoryComments" Relationship="Self.FK_StoryComment_UserArchived" FromRole="User" ToRole="StoryComment" />
-          <NavigationProperty Name="StoryComments1" Relationship="Self.FK_StoryComment_UserCreated" FromRole="User" ToRole="StoryComment" />
-          <NavigationProperty Name="StoryComments2" Relationship="Self.FK_StoryComment_UserUpdated" FromRole="User" ToRole="StoryComment" />
-          <NavigationProperty Name="StoryPosts" Relationship="Self.FK_StoryPost_UserArchived" FromRole="User" ToRole="StoryPost" />
-          <NavigationProperty Name="StoryPosts1" Relationship="Self.FK_StoryPost_UserCreated" FromRole="User" ToRole="StoryPost" />
-          <NavigationProperty Name="StoryPosts2" Relationship="Self.FK_StoryPost_UserUpdated" FromRole="User" ToRole="StoryPost" />
-          <NavigationProperty Name="TextInserts" Relationship="Self.FK_TextInsert_UserArchived" FromRole="User" ToRole="TextInsert" />
-          <NavigationProperty Name="TextInserts1" Relationship="Self.FK_TextInsert_UserCreated" FromRole="User" ToRole="TextInsert" />
-          <NavigationProperty Name="TextInserts2" Relationship="Self.FK_TextInsert_UserUpdated" FromRole="User" ToRole="TextInsert" />
+          <NavigationProperty Name="MediaInsert" Relationship="Self.FK_MediaInsert_UserArchived" FromRole="User" ToRole="MediaInsert" />
+          <NavigationProperty Name="MediaInsert1" Relationship="Self.FK_MediaInsert_UserCreated" FromRole="User" ToRole="MediaInsert" />
+          <NavigationProperty Name="MediaInsert2" Relationship="Self.FK_MediaInsert_UserUpdated" FromRole="User" ToRole="MediaInsert" />
+          <NavigationProperty Name="PostTag" Relationship="Self.FK_PostTag_UserArchived" FromRole="User" ToRole="PostTag" />
+          <NavigationProperty Name="PostTag1" Relationship="Self.FK_PostTag_UserCreated" FromRole="User" ToRole="PostTag" />
+          <NavigationProperty Name="PostTag2" Relationship="Self.FK_PostTag_UserUpdated" FromRole="User" ToRole="PostTag" />
+          <NavigationProperty Name="Story" Relationship="Self.FK_Story_UserArchived" FromRole="User" ToRole="Story" />
+          <NavigationProperty Name="Story1" Relationship="Self.FK_Story_UserCreated" FromRole="User" ToRole="Story" />
+          <NavigationProperty Name="Story2" Relationship="Self.FK_Story_UserUpdated" FromRole="User" ToRole="Story" />
+          <NavigationProperty Name="StoryComment" Relationship="Self.FK_StoryComment_UserArchived" FromRole="User" ToRole="StoryComment" />
+          <NavigationProperty Name="StoryComment1" Relationship="Self.FK_StoryComment_UserCreated" FromRole="User" ToRole="StoryComment" />
+          <NavigationProperty Name="StoryComment2" Relationship="Self.FK_StoryComment_UserUpdated" FromRole="User" ToRole="StoryComment" />
+          <NavigationProperty Name="StoryPost" Relationship="Self.FK_StoryPost_UserArchived" FromRole="User" ToRole="StoryPost" />
+          <NavigationProperty Name="StoryPost1" Relationship="Self.FK_StoryPost_UserCreated" FromRole="User" ToRole="StoryPost" />
+          <NavigationProperty Name="StoryPost2" Relationship="Self.FK_StoryPost_UserUpdated" FromRole="User" ToRole="StoryPost" />
+          <NavigationProperty Name="TextInsert" Relationship="Self.FK_TextInsert_UserArchived" FromRole="User" ToRole="TextInsert" />
+          <NavigationProperty Name="TextInsert1" Relationship="Self.FK_TextInsert_UserCreated" FromRole="User" ToRole="TextInsert" />
+          <NavigationProperty Name="TextInsert2" Relationship="Self.FK_TextInsert_UserUpdated" FromRole="User" ToRole="TextInsert" />
           <NavigationProperty Name="User1" Relationship="Self.FK_User_CreatedBy" FromRole="User" ToRole="User1" />
           <NavigationProperty Name="User2" Relationship="Self.FK_User_CreatedBy" FromRole="User1" ToRole="User" />
           <NavigationProperty Name="User11" Relationship="Self.FK_User_DeactivatedBy" FromRole="User" ToRole="User1" />
@@ -1321,7 +1321,7 @@
         </Association>
         <Association Name="FK_Media_MediaType">
           <End Role="MediaType" Type="Self.MediaType" Multiplicity="0..1" />
-          <End Role="Media" Type="Self.Medium" Multiplicity="*" />
+          <End Role="Media" Type="Self.Media" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MediaType">
               <PropertyRef Name="MediaTypeID" />
@@ -1333,7 +1333,7 @@
         </Association>
         <Association Name="FK_Media_UserArchived">
           <End Role="User" Type="Self.User" Multiplicity="0..1" />
-          <End Role="Media" Type="Self.Medium" Multiplicity="*" />
+          <End Role="Media" Type="Self.Media" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="UserID" />
@@ -1345,7 +1345,7 @@
         </Association>
         <Association Name="FK_Media_UserCreated">
           <End Role="User" Type="Self.User" Multiplicity="0..1" />
-          <End Role="Media" Type="Self.Medium" Multiplicity="*" />
+          <End Role="Media" Type="Self.Media" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="UserID" />
@@ -1357,7 +1357,7 @@
         </Association>
         <Association Name="FK_Media_UserUpdated">
           <End Role="User" Type="Self.User" Multiplicity="0..1" />
-          <End Role="Media" Type="Self.Medium" Multiplicity="*" />
+          <End Role="Media" Type="Self.Media" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="UserID" />
@@ -1368,7 +1368,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_MediaInsert_Media">
-          <End Role="Media" Type="Self.Medium" Multiplicity="1" />
+          <End Role="Media" Type="Self.Media" Multiplicity="1" />
           <End Role="MediaInsert" Type="Self.MediaInsert" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Media">
@@ -1699,189 +1699,189 @@
           <End Role="PostTag" Type="Self.PostTag" Multiplicity="*" />
           <End Role="StoryPost" Type="Self.StoryPost" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="TLWebsiteDTEEntities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="BlogComments" EntityType="Self.BlogComment" />
-          <EntitySet Name="BlogPosts" EntityType="Self.BlogPost" />
-          <EntitySet Name="Media" EntityType="Self.Medium" />
-          <EntitySet Name="MediaInserts" EntityType="Self.MediaInsert" />
-          <EntitySet Name="MediaTypes" EntityType="Self.MediaType" />
-          <EntitySet Name="PostTags" EntityType="Self.PostTag" />
-          <EntitySet Name="Stories" EntityType="Self.Story" />
-          <EntitySet Name="StoryComments" EntityType="Self.StoryComment" />
-          <EntitySet Name="StoryPosts" EntityType="Self.StoryPost" />
-          <EntitySet Name="TextInserts" EntityType="Self.TextInsert" />
-          <EntitySet Name="Users" EntityType="Self.User" />
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BlogComment" EntityType="Self.BlogComment" />
+          <EntitySet Name="BlogPost" EntityType="Self.BlogPost" />
+          <EntitySet Name="Media" EntityType="Self.Media" />
+          <EntitySet Name="MediaInsert" EntityType="Self.MediaInsert" />
+          <EntitySet Name="MediaType" EntityType="Self.MediaType" />
+          <EntitySet Name="PostTag" EntityType="Self.PostTag" />
+          <EntitySet Name="Story" EntityType="Self.Story" />
+          <EntitySet Name="StoryComment" EntityType="Self.StoryComment" />
+          <EntitySet Name="StoryPost" EntityType="Self.StoryPost" />
+          <EntitySet Name="TextInsert" EntityType="Self.TextInsert" />
+          <EntitySet Name="User" EntityType="Self.User" />
           <AssociationSet Name="FK_BlogComment_Blog" Association="Self.FK_BlogComment_Blog">
-            <End Role="BlogPost" EntitySet="BlogPosts" />
-            <End Role="BlogComment" EntitySet="BlogComments" />
+            <End Role="BlogPost" EntitySet="BlogPost" />
+            <End Role="BlogComment" EntitySet="BlogComment" />
           </AssociationSet>
           <AssociationSet Name="FK_BlogComment_BlogComment" Association="Self.FK_BlogComment_BlogComment">
-            <End Role="BlogComment" EntitySet="BlogComments" />
-            <End Role="BlogComment1" EntitySet="BlogComments" />
+            <End Role="BlogComment" EntitySet="BlogComment" />
+            <End Role="BlogComment1" EntitySet="BlogComment" />
           </AssociationSet>
           <AssociationSet Name="FK_BlogComment_UserArchived" Association="Self.FK_BlogComment_UserArchived">
-            <End Role="User" EntitySet="Users" />
-            <End Role="BlogComment" EntitySet="BlogComments" />
+            <End Role="User" EntitySet="User" />
+            <End Role="BlogComment" EntitySet="BlogComment" />
           </AssociationSet>
           <AssociationSet Name="FK_BlogComment_UserCreated" Association="Self.FK_BlogComment_UserCreated">
-            <End Role="User" EntitySet="Users" />
-            <End Role="BlogComment" EntitySet="BlogComments" />
+            <End Role="User" EntitySet="User" />
+            <End Role="BlogComment" EntitySet="BlogComment" />
           </AssociationSet>
           <AssociationSet Name="FK_BlogComment_UserUpdated" Association="Self.FK_BlogComment_UserUpdated">
-            <End Role="User" EntitySet="Users" />
-            <End Role="BlogComment" EntitySet="BlogComments" />
+            <End Role="User" EntitySet="User" />
+            <End Role="BlogComment" EntitySet="BlogComment" />
           </AssociationSet>
           <AssociationSet Name="FK_BlogPost_UserArchived" Association="Self.FK_BlogPost_UserArchived">
-            <End Role="User" EntitySet="Users" />
-            <End Role="BlogPost" EntitySet="BlogPosts" />
+            <End Role="User" EntitySet="User" />
+            <End Role="BlogPost" EntitySet="BlogPost" />
           </AssociationSet>
           <AssociationSet Name="FK_BlogPost_UserCreated" Association="Self.FK_BlogPost_UserCreated">
-            <End Role="User" EntitySet="Users" />
-            <End Role="BlogPost" EntitySet="BlogPosts" />
+            <End Role="User" EntitySet="User" />
+            <End Role="BlogPost" EntitySet="BlogPost" />
           </AssociationSet>
           <AssociationSet Name="FK_BlogPost_UserUpdated" Association="Self.FK_BlogPost_UserUpdated">
-            <End Role="User" EntitySet="Users" />
-            <End Role="BlogPost" EntitySet="BlogPosts" />
+            <End Role="User" EntitySet="User" />
+            <End Role="BlogPost" EntitySet="BlogPost" />
           </AssociationSet>
           <AssociationSet Name="FK_MediaInsert_BlogPost" Association="Self.FK_MediaInsert_BlogPost">
-            <End Role="BlogPost" EntitySet="BlogPosts" />
-            <End Role="MediaInsert" EntitySet="MediaInserts" />
+            <End Role="BlogPost" EntitySet="BlogPost" />
+            <End Role="MediaInsert" EntitySet="MediaInsert" />
           </AssociationSet>
           <AssociationSet Name="FK_TextInsert_BlogPost" Association="Self.FK_TextInsert_BlogPost">
-            <End Role="BlogPost" EntitySet="BlogPosts" />
-            <End Role="TextInsert" EntitySet="TextInserts" />
+            <End Role="BlogPost" EntitySet="BlogPost" />
+            <End Role="TextInsert" EntitySet="TextInsert" />
           </AssociationSet>
           <AssociationSet Name="FK_Media_MediaType" Association="Self.FK_Media_MediaType">
-            <End Role="MediaType" EntitySet="MediaTypes" />
+            <End Role="MediaType" EntitySet="MediaType" />
             <End Role="Media" EntitySet="Media" />
           </AssociationSet>
           <AssociationSet Name="FK_Media_UserArchived" Association="Self.FK_Media_UserArchived">
-            <End Role="User" EntitySet="Users" />
+            <End Role="User" EntitySet="User" />
             <End Role="Media" EntitySet="Media" />
           </AssociationSet>
           <AssociationSet Name="FK_Media_UserCreated" Association="Self.FK_Media_UserCreated">
-            <End Role="User" EntitySet="Users" />
+            <End Role="User" EntitySet="User" />
             <End Role="Media" EntitySet="Media" />
           </AssociationSet>
           <AssociationSet Name="FK_Media_UserUpdated" Association="Self.FK_Media_UserUpdated">
-            <End Role="User" EntitySet="Users" />
+            <End Role="User" EntitySet="User" />
             <End Role="Media" EntitySet="Media" />
           </AssociationSet>
           <AssociationSet Name="FK_MediaInsert_Media" Association="Self.FK_MediaInsert_Media">
             <End Role="Media" EntitySet="Media" />
-            <End Role="MediaInsert" EntitySet="MediaInserts" />
+            <End Role="MediaInsert" EntitySet="MediaInsert" />
           </AssociationSet>
           <AssociationSet Name="FK_MediaInsert_StoryPost" Association="Self.FK_MediaInsert_StoryPost">
-            <End Role="StoryPost" EntitySet="StoryPosts" />
-            <End Role="MediaInsert" EntitySet="MediaInserts" />
+            <End Role="StoryPost" EntitySet="StoryPost" />
+            <End Role="MediaInsert" EntitySet="MediaInsert" />
           </AssociationSet>
           <AssociationSet Name="FK_MediaInsert_UserArchived" Association="Self.FK_MediaInsert_UserArchived">
-            <End Role="User" EntitySet="Users" />
-            <End Role="MediaInsert" EntitySet="MediaInserts" />
+            <End Role="User" EntitySet="User" />
+            <End Role="MediaInsert" EntitySet="MediaInsert" />
           </AssociationSet>
           <AssociationSet Name="FK_MediaInsert_UserCreated" Association="Self.FK_MediaInsert_UserCreated">
-            <End Role="User" EntitySet="Users" />
-            <End Role="MediaInsert" EntitySet="MediaInserts" />
+            <End Role="User" EntitySet="User" />
+            <End Role="MediaInsert" EntitySet="MediaInsert" />
           </AssociationSet>
           <AssociationSet Name="FK_MediaInsert_UserUpdated" Association="Self.FK_MediaInsert_UserUpdated">
-            <End Role="User" EntitySet="Users" />
-            <End Role="MediaInsert" EntitySet="MediaInserts" />
+            <End Role="User" EntitySet="User" />
+            <End Role="MediaInsert" EntitySet="MediaInsert" />
           </AssociationSet>
           <AssociationSet Name="FK_PostTag_UserArchived" Association="Self.FK_PostTag_UserArchived">
-            <End Role="User" EntitySet="Users" />
-            <End Role="PostTag" EntitySet="PostTags" />
+            <End Role="User" EntitySet="User" />
+            <End Role="PostTag" EntitySet="PostTag" />
           </AssociationSet>
           <AssociationSet Name="FK_PostTag_UserCreated" Association="Self.FK_PostTag_UserCreated">
-            <End Role="User" EntitySet="Users" />
-            <End Role="PostTag" EntitySet="PostTags" />
+            <End Role="User" EntitySet="User" />
+            <End Role="PostTag" EntitySet="PostTag" />
           </AssociationSet>
           <AssociationSet Name="FK_PostTag_UserUpdated" Association="Self.FK_PostTag_UserUpdated">
-            <End Role="User" EntitySet="Users" />
-            <End Role="PostTag" EntitySet="PostTags" />
+            <End Role="User" EntitySet="User" />
+            <End Role="PostTag" EntitySet="PostTag" />
           </AssociationSet>
           <AssociationSet Name="FK_Story_UserArchived" Association="Self.FK_Story_UserArchived">
-            <End Role="User" EntitySet="Users" />
-            <End Role="Story" EntitySet="Stories" />
+            <End Role="User" EntitySet="User" />
+            <End Role="Story" EntitySet="Story" />
           </AssociationSet>
           <AssociationSet Name="FK_Story_UserCreated" Association="Self.FK_Story_UserCreated">
-            <End Role="User" EntitySet="Users" />
-            <End Role="Story" EntitySet="Stories" />
+            <End Role="User" EntitySet="User" />
+            <End Role="Story" EntitySet="Story" />
           </AssociationSet>
           <AssociationSet Name="FK_Story_UserUpdated" Association="Self.FK_Story_UserUpdated">
-            <End Role="User" EntitySet="Users" />
-            <End Role="Story" EntitySet="Stories" />
+            <End Role="User" EntitySet="User" />
+            <End Role="Story" EntitySet="Story" />
           </AssociationSet>
           <AssociationSet Name="FK_StoryPost_Story" Association="Self.FK_StoryPost_Story">
-            <End Role="Story" EntitySet="Stories" />
-            <End Role="StoryPost" EntitySet="StoryPosts" />
+            <End Role="Story" EntitySet="Story" />
+            <End Role="StoryPost" EntitySet="StoryPost" />
           </AssociationSet>
           <AssociationSet Name="FK_StoryComment_Story" Association="Self.FK_StoryComment_Story">
-            <End Role="StoryPost" EntitySet="StoryPosts" />
-            <End Role="StoryComment" EntitySet="StoryComments" />
+            <End Role="StoryPost" EntitySet="StoryPost" />
+            <End Role="StoryComment" EntitySet="StoryComment" />
           </AssociationSet>
           <AssociationSet Name="FK_StoryComment_StoryComment" Association="Self.FK_StoryComment_StoryComment">
-            <End Role="StoryComment" EntitySet="StoryComments" />
-            <End Role="StoryComment1" EntitySet="StoryComments" />
+            <End Role="StoryComment" EntitySet="StoryComment" />
+            <End Role="StoryComment1" EntitySet="StoryComment" />
           </AssociationSet>
           <AssociationSet Name="FK_StoryComment_UserArchived" Association="Self.FK_StoryComment_UserArchived">
-            <End Role="User" EntitySet="Users" />
-            <End Role="StoryComment" EntitySet="StoryComments" />
+            <End Role="User" EntitySet="User" />
+            <End Role="StoryComment" EntitySet="StoryComment" />
           </AssociationSet>
           <AssociationSet Name="FK_StoryComment_UserCreated" Association="Self.FK_StoryComment_UserCreated">
-            <End Role="User" EntitySet="Users" />
-            <End Role="StoryComment" EntitySet="StoryComments" />
+            <End Role="User" EntitySet="User" />
+            <End Role="StoryComment" EntitySet="StoryComment" />
           </AssociationSet>
           <AssociationSet Name="FK_StoryComment_UserUpdated" Association="Self.FK_StoryComment_UserUpdated">
-            <End Role="User" EntitySet="Users" />
-            <End Role="StoryComment" EntitySet="StoryComments" />
+            <End Role="User" EntitySet="User" />
+            <End Role="StoryComment" EntitySet="StoryComment" />
           </AssociationSet>
           <AssociationSet Name="FK_StoryPost_UserArchived" Association="Self.FK_StoryPost_UserArchived">
-            <End Role="User" EntitySet="Users" />
-            <End Role="StoryPost" EntitySet="StoryPosts" />
+            <End Role="User" EntitySet="User" />
+            <End Role="StoryPost" EntitySet="StoryPost" />
           </AssociationSet>
           <AssociationSet Name="FK_StoryPost_UserCreated" Association="Self.FK_StoryPost_UserCreated">
-            <End Role="User" EntitySet="Users" />
-            <End Role="StoryPost" EntitySet="StoryPosts" />
+            <End Role="User" EntitySet="User" />
+            <End Role="StoryPost" EntitySet="StoryPost" />
           </AssociationSet>
           <AssociationSet Name="FK_StoryPost_UserUpdated" Association="Self.FK_StoryPost_UserUpdated">
-            <End Role="User" EntitySet="Users" />
-            <End Role="StoryPost" EntitySet="StoryPosts" />
+            <End Role="User" EntitySet="User" />
+            <End Role="StoryPost" EntitySet="StoryPost" />
           </AssociationSet>
           <AssociationSet Name="FK_TextInsert_StoryPost" Association="Self.FK_TextInsert_StoryPost">
-            <End Role="StoryPost" EntitySet="StoryPosts" />
-            <End Role="TextInsert" EntitySet="TextInserts" />
+            <End Role="StoryPost" EntitySet="StoryPost" />
+            <End Role="TextInsert" EntitySet="TextInsert" />
           </AssociationSet>
           <AssociationSet Name="FK_TextInsert_UserArchived" Association="Self.FK_TextInsert_UserArchived">
-            <End Role="User" EntitySet="Users" />
-            <End Role="TextInsert" EntitySet="TextInserts" />
+            <End Role="User" EntitySet="User" />
+            <End Role="TextInsert" EntitySet="TextInsert" />
           </AssociationSet>
           <AssociationSet Name="FK_TextInsert_UserCreated" Association="Self.FK_TextInsert_UserCreated">
-            <End Role="User" EntitySet="Users" />
-            <End Role="TextInsert" EntitySet="TextInserts" />
+            <End Role="User" EntitySet="User" />
+            <End Role="TextInsert" EntitySet="TextInsert" />
           </AssociationSet>
           <AssociationSet Name="FK_TextInsert_UserUpdated" Association="Self.FK_TextInsert_UserUpdated">
-            <End Role="User" EntitySet="Users" />
-            <End Role="TextInsert" EntitySet="TextInserts" />
+            <End Role="User" EntitySet="User" />
+            <End Role="TextInsert" EntitySet="TextInsert" />
           </AssociationSet>
           <AssociationSet Name="FK_User_CreatedBy" Association="Self.FK_User_CreatedBy">
-            <End Role="User" EntitySet="Users" />
-            <End Role="User1" EntitySet="Users" />
+            <End Role="User" EntitySet="User" />
+            <End Role="User1" EntitySet="User" />
           </AssociationSet>
           <AssociationSet Name="FK_User_DeactivatedBy" Association="Self.FK_User_DeactivatedBy">
-            <End Role="User" EntitySet="Users" />
-            <End Role="User1" EntitySet="Users" />
+            <End Role="User" EntitySet="User" />
+            <End Role="User1" EntitySet="User" />
           </AssociationSet>
           <AssociationSet Name="FK_User_UpdatedBy" Association="Self.FK_User_UpdatedBy">
-            <End Role="User" EntitySet="Users" />
-            <End Role="User1" EntitySet="Users" />
+            <End Role="User" EntitySet="User" />
+            <End Role="User1" EntitySet="User" />
           </AssociationSet>
           <AssociationSet Name="PostTag_BlogPost" Association="Self.PostTag_BlogPost">
-            <End Role="BlogPost" EntitySet="BlogPosts" />
-            <End Role="PostTag" EntitySet="PostTags" />
+            <End Role="BlogPost" EntitySet="BlogPost" />
+            <End Role="PostTag" EntitySet="PostTag" />
           </AssociationSet>
           <AssociationSet Name="PostTag_StoryPost" Association="Self.PostTag_StoryPost">
-            <End Role="PostTag" EntitySet="PostTags" />
-            <End Role="StoryPost" EntitySet="StoryPosts" />
+            <End Role="PostTag" EntitySet="PostTag" />
+            <End Role="StoryPost" EntitySet="StoryPost" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -1889,8 +1889,8 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="TLWebsiteDTEModelStoreContainer" CdmEntityContainer="TLWebsiteDTEEntities1">
-          <EntitySetMapping Name="BlogComments">
+        <EntityContainerMapping StorageEntityContainer="TLWebsiteDTEModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="BlogComment">
             <EntityTypeMapping TypeName="TLWebsiteDTEModel.BlogComment">
               <MappingFragment StoreEntitySet="BlogComment">
                 <ScalarProperty Name="BlogCommentID" ColumnName="BlogCommentID" />
@@ -1907,7 +1907,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="BlogPosts">
+          <EntitySetMapping Name="BlogPost">
             <EntityTypeMapping TypeName="TLWebsiteDTEModel.BlogPost">
               <MappingFragment StoreEntitySet="BlogPost">
                 <ScalarProperty Name="BlogPostID" ColumnName="BlogPostID" />
@@ -1925,7 +1925,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Media">
-            <EntityTypeMapping TypeName="TLWebsiteDTEModel.Medium">
+            <EntityTypeMapping TypeName="TLWebsiteDTEModel.Media">
               <MappingFragment StoreEntitySet="Media">
                 <ScalarProperty Name="MediaID" ColumnName="MediaID" />
                 <ScalarProperty Name="MediaTypeID" ColumnName="MediaTypeID" />
@@ -1942,7 +1942,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="MediaInserts">
+          <EntitySetMapping Name="MediaInsert">
             <EntityTypeMapping TypeName="TLWebsiteDTEModel.MediaInsert">
               <MappingFragment StoreEntitySet="MediaInsert">
                 <ScalarProperty Name="MediaInsertID" ColumnName="MediaInsertID" />
@@ -1962,7 +1962,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="MediaTypes">
+          <EntitySetMapping Name="MediaType">
             <EntityTypeMapping TypeName="TLWebsiteDTEModel.MediaType">
               <MappingFragment StoreEntitySet="MediaType">
                 <ScalarProperty Name="MediaTypeID" ColumnName="MediaTypeID" />
@@ -1970,7 +1970,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="PostTags">
+          <EntitySetMapping Name="PostTag">
             <EntityTypeMapping TypeName="TLWebsiteDTEModel.PostTag">
               <MappingFragment StoreEntitySet="PostTag">
                 <ScalarProperty Name="PostTagID" ColumnName="PostTagID" />
@@ -1986,7 +1986,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Stories">
+          <EntitySetMapping Name="Story">
             <EntityTypeMapping TypeName="TLWebsiteDTEModel.Story">
               <MappingFragment StoreEntitySet="Story">
                 <ScalarProperty Name="StoryID" ColumnName="StoryID" />
@@ -2002,7 +2002,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="StoryComments">
+          <EntitySetMapping Name="StoryComment">
             <EntityTypeMapping TypeName="TLWebsiteDTEModel.StoryComment">
               <MappingFragment StoreEntitySet="StoryComment">
                 <ScalarProperty Name="StoryCommentID" ColumnName="StoryCommentID" />
@@ -2019,7 +2019,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="StoryPosts">
+          <EntitySetMapping Name="StoryPost">
             <EntityTypeMapping TypeName="TLWebsiteDTEModel.StoryPost">
               <MappingFragment StoreEntitySet="StoryPost">
                 <ScalarProperty Name="StoryPostID" ColumnName="StoryPostID" />
@@ -2037,7 +2037,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TextInserts">
+          <EntitySetMapping Name="TextInsert">
             <EntityTypeMapping TypeName="TLWebsiteDTEModel.TextInsert">
               <MappingFragment StoreEntitySet="TextInsert">
                 <ScalarProperty Name="TextInsertID" ColumnName="TextInsertID" />
@@ -2057,7 +2057,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Users">
+          <EntitySetMapping Name="User">
             <EntityTypeMapping TypeName="TLWebsiteDTEModel.User">
               <MappingFragment StoreEntitySet="User">
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
@@ -2107,7 +2107,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

@@ -4,17 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2d9edc0cb6774f9eb2a3c0c6ee5ee1f4" Name="Diagram1" ZoomLevel="111">
-        <EntityTypeShape EntityType="TLWebsiteDTEModel.BlogComment" Width="1.5" PointX="4.75" PointY="5.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLWebsiteDTEModel.BlogPost" Width="1.5" PointX="2.5" PointY="8.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLWebsiteDTEModel.Medium" Width="1.5" PointX="2.5" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLWebsiteDTEModel.MediaInsert" Width="1.5" PointX="7.75" PointY="6.625" IsExpanded="true" />
+      <Diagram DiagramId="57ed9f1e86d04c689f3151969baf44e5" Name="Diagram1">
+        <EntityTypeShape EntityType="TLWebsiteDTEModel.BlogComment" Width="1.5" PointX="5.25" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLWebsiteDTEModel.BlogPost" Width="1.5" PointX="3" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLWebsiteDTEModel.Media" Width="1.5" PointX="3" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLWebsiteDTEModel.MediaInsert" Width="1.5" PointX="8.25" PointY="16.125" IsExpanded="true" />
         <EntityTypeShape EntityType="TLWebsiteDTEModel.MediaType" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLWebsiteDTEModel.PostTag" Width="1.5" PointX="4.75" PointY="11.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLWebsiteDTEModel.Story" Width="1.5" PointX="2.5" PointY="18.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLWebsiteDTEModel.StoryComment" Width="1.5" PointX="10.25" PointY="9" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLWebsiteDTEModel.StoryPost" Width="1.5" PointX="7" PointY="12.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLWebsiteDTEModel.TextInsert" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLWebsiteDTEModel.PostTag" Width="1.5" PointX="5.25" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLWebsiteDTEModel.Story" Width="1.5" PointX="3" PointY="28.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLWebsiteDTEModel.StoryComment" Width="1.5" PointX="10.75" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLWebsiteDTEModel.StoryPost" Width="1.5" PointX="7.5" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLWebsiteDTEModel.TextInsert" Width="1.5" PointX="8.25" PointY="10.25" IsExpanded="true" />
         <EntityTypeShape EntityType="TLWebsiteDTEModel.User" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
         <AssociationConnector Association="TLWebsiteDTEModel.FK_BlogComment_Blog" ManuallyRouted="false" />
         <AssociationConnector Association="TLWebsiteDTEModel.FK_BlogComment_BlogComment" ManuallyRouted="false" />

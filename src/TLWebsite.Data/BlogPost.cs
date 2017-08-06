@@ -17,10 +17,10 @@ namespace TLWebsite.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public BlogPost()
         {
-            this.BlogComments = new HashSet<BlogComment>();
-            this.MediaInserts = new HashSet<MediaInsert>();
-            this.TextInserts = new HashSet<TextInsert>();
-            this.PostTags = new HashSet<PostTag>();
+            this.BlogComment = new HashSet<BlogComment>();
+            this.MediaInsert = new HashSet<MediaInsert>();
+            this.TextInsert = new HashSet<TextInsert>();
+            this.PostTag = new HashSet<PostTag>();
         }
     
         public int BlogPostID { get; set; }
@@ -36,15 +36,15 @@ namespace TLWebsite.Data
         public Nullable<bool> IsActive { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BlogComment> BlogComments { get; set; }
+        public virtual ICollection<BlogComment> BlogComment { get; set; }
         public virtual User User { get; set; }
         public virtual User User1 { get; set; }
         public virtual User User2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MediaInsert> MediaInserts { get; set; }
+        public virtual ICollection<MediaInsert> MediaInsert { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TextInsert> TextInserts { get; set; }
+        public virtual ICollection<TextInsert> TextInsert { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PostTag> PostTags { get; set; }
+        public virtual ICollection<PostTag> PostTag { get; set; }
     }
 }

@@ -49,6 +49,9 @@
     <CodeAnalysisRuleSet>TLWebsite.Data.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -77,17 +80,28 @@
     <Compile Include="BlogPost.cs">
       <DependentUpon>TLWebsiteDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="DTO\BlogComment.cs" />
+    <Compile Include="DTO\BlogPost.cs" />
+    <Compile Include="DTO\Media.cs" />
+    <Compile Include="DTO\MediaInsert.cs" />
+    <Compile Include="DTO\MediaType.cs" />
+    <Compile Include="DTO\PostTag.cs" />
+    <Compile Include="DTO\Story.cs" />
+    <Compile Include="DTO\StoryComment.cs" />
+    <Compile Include="DTO\StoryPost.cs" />
+    <Compile Include="DTO\TextInsert.cs" />
+    <Compile Include="DTO\User.cs" />
     <Compile Include="Interfaces\ILogger.cs" />
     <Compile Include="Interfaces\ILogLevel.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="LogLevel.cs" />
+    <Compile Include="Media.cs">
+      <DependentUpon>TLWebsiteDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="MediaInsert.cs">
       <DependentUpon>TLWebsiteDB.tt</DependentUpon>
     </Compile>
     <Compile Include="MediaType.cs">
-      <DependentUpon>TLWebsiteDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Medium.cs">
       <DependentUpon>TLWebsiteDB.tt</DependentUpon>
     </Compile>
     <Compile Include="PostTag.cs">
@@ -124,6 +138,7 @@
     <Compile Include="User.cs">
       <DependentUpon>TLWebsiteDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Utils\Mapper.cs" />
     <Compile Include="Utils\LogLevelsEnum.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -170,6 +185,5 @@
       <LastGenOutput>TLWebsiteDB.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

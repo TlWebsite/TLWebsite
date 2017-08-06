@@ -17,33 +17,33 @@ namespace TLWebsite.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
-            this.BlogComments = new HashSet<BlogComment>();
-            this.BlogComments1 = new HashSet<BlogComment>();
-            this.BlogComments2 = new HashSet<BlogComment>();
-            this.BlogPosts = new HashSet<BlogPost>();
-            this.BlogPosts1 = new HashSet<BlogPost>();
-            this.BlogPosts2 = new HashSet<BlogPost>();
-            this.Media = new HashSet<Medium>();
-            this.Media1 = new HashSet<Medium>();
-            this.Media2 = new HashSet<Medium>();
-            this.MediaInserts = new HashSet<MediaInsert>();
-            this.MediaInserts1 = new HashSet<MediaInsert>();
-            this.MediaInserts2 = new HashSet<MediaInsert>();
-            this.PostTags = new HashSet<PostTag>();
-            this.PostTags1 = new HashSet<PostTag>();
-            this.PostTags2 = new HashSet<PostTag>();
-            this.Stories = new HashSet<Story>();
-            this.Stories1 = new HashSet<Story>();
-            this.Stories2 = new HashSet<Story>();
-            this.StoryComments = new HashSet<StoryComment>();
-            this.StoryComments1 = new HashSet<StoryComment>();
-            this.StoryComments2 = new HashSet<StoryComment>();
-            this.StoryPosts = new HashSet<StoryPost>();
-            this.StoryPosts1 = new HashSet<StoryPost>();
-            this.StoryPosts2 = new HashSet<StoryPost>();
-            this.TextInserts = new HashSet<TextInsert>();
-            this.TextInserts1 = new HashSet<TextInsert>();
-            this.TextInserts2 = new HashSet<TextInsert>();
+            this.BlogComment = new HashSet<BlogComment>();
+            this.BlogComment1 = new HashSet<BlogComment>();
+            this.BlogComment2 = new HashSet<BlogComment>();
+            this.BlogPost = new HashSet<BlogPost>();
+            this.BlogPost1 = new HashSet<BlogPost>();
+            this.BlogPost2 = new HashSet<BlogPost>();
+            this.Media = new HashSet<Media>();
+            this.Media1 = new HashSet<Media>();
+            this.Media2 = new HashSet<Media>();
+            this.MediaInsert = new HashSet<MediaInsert>();
+            this.MediaInsert1 = new HashSet<MediaInsert>();
+            this.MediaInsert2 = new HashSet<MediaInsert>();
+            this.PostTag = new HashSet<PostTag>();
+            this.PostTag1 = new HashSet<PostTag>();
+            this.PostTag2 = new HashSet<PostTag>();
+            this.Story = new HashSet<Story>();
+            this.Story1 = new HashSet<Story>();
+            this.Story2 = new HashSet<Story>();
+            this.StoryComment = new HashSet<StoryComment>();
+            this.StoryComment1 = new HashSet<StoryComment>();
+            this.StoryComment2 = new HashSet<StoryComment>();
+            this.StoryPost = new HashSet<StoryPost>();
+            this.StoryPost1 = new HashSet<StoryPost>();
+            this.StoryPost2 = new HashSet<StoryPost>();
+            this.TextInsert = new HashSet<TextInsert>();
+            this.TextInsert1 = new HashSet<TextInsert>();
+            this.TextInsert2 = new HashSet<TextInsert>();
             this.User1 = new HashSet<User>();
             this.User11 = new HashSet<User>();
             this.User12 = new HashSet<User>();
@@ -65,59 +65,59 @@ namespace TLWebsite.Data
         public Nullable<bool> isActive { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BlogComment> BlogComments { get; set; }
+        public virtual ICollection<BlogComment> BlogComment { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BlogComment> BlogComments1 { get; set; }
+        public virtual ICollection<BlogComment> BlogComment1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BlogComment> BlogComments2 { get; set; }
+        public virtual ICollection<BlogComment> BlogComment2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BlogPost> BlogPosts { get; set; }
+        public virtual ICollection<BlogPost> BlogPost { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BlogPost> BlogPosts1 { get; set; }
+        public virtual ICollection<BlogPost> BlogPost1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BlogPost> BlogPosts2 { get; set; }
+        public virtual ICollection<BlogPost> BlogPost2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Medium> Media { get; set; }
+        public virtual ICollection<Media> Media { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Medium> Media1 { get; set; }
+        public virtual ICollection<Media> Media1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Medium> Media2 { get; set; }
+        public virtual ICollection<Media> Media2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MediaInsert> MediaInserts { get; set; }
+        public virtual ICollection<MediaInsert> MediaInsert { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MediaInsert> MediaInserts1 { get; set; }
+        public virtual ICollection<MediaInsert> MediaInsert1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MediaInsert> MediaInserts2 { get; set; }
+        public virtual ICollection<MediaInsert> MediaInsert2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PostTag> PostTags { get; set; }
+        public virtual ICollection<PostTag> PostTag { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PostTag> PostTags1 { get; set; }
+        public virtual ICollection<PostTag> PostTag1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PostTag> PostTags2 { get; set; }
+        public virtual ICollection<PostTag> PostTag2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Story> Stories { get; set; }
+        public virtual ICollection<Story> Story { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Story> Stories1 { get; set; }
+        public virtual ICollection<Story> Story1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Story> Stories2 { get; set; }
+        public virtual ICollection<Story> Story2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<StoryComment> StoryComments { get; set; }
+        public virtual ICollection<StoryComment> StoryComment { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<StoryComment> StoryComments1 { get; set; }
+        public virtual ICollection<StoryComment> StoryComment1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<StoryComment> StoryComments2 { get; set; }
+        public virtual ICollection<StoryComment> StoryComment2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<StoryPost> StoryPosts { get; set; }
+        public virtual ICollection<StoryPost> StoryPost { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<StoryPost> StoryPosts1 { get; set; }
+        public virtual ICollection<StoryPost> StoryPost1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<StoryPost> StoryPosts2 { get; set; }
+        public virtual ICollection<StoryPost> StoryPost2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TextInsert> TextInserts { get; set; }
+        public virtual ICollection<TextInsert> TextInsert { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TextInsert> TextInserts1 { get; set; }
+        public virtual ICollection<TextInsert> TextInsert1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TextInsert> TextInserts2 { get; set; }
+        public virtual ICollection<TextInsert> TextInsert2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<User> User1 { get; set; }
         public virtual User User2 { get; set; }

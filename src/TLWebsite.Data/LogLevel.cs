@@ -18,6 +18,11 @@ namespace TLWebsite.Data
             this.logType = string.Empty;
         }
 
+        public LogLevel(ILog logger)
+        {
+            this.log = logger;
+        }
+
         public string Debug(string message)
         {
             return this.Log(message, LogLevelsEnum.DEBUG);
@@ -58,19 +63,19 @@ namespace TLWebsite.Data
                     logMessage = "Debug: " + logMessage;
                     break;
                 case LogLevelsEnum.INFO:
-                    this.log.Debug(logMessage);
+                    this.log.Info(logMessage);
                     logMessage = "Info: " + logMessage;
                     break;
                 case LogLevelsEnum.WARN:
-                    this.log.Debug(logMessage);
+                    this.log.Warn(logMessage);
                     logMessage = "Warn: " + logMessage;
                     break;
                 case LogLevelsEnum.ERROR:
-                    this.log.Debug(logMessage);
+                    this.log.Error(logMessage);
                     logMessage = "Error: " + logMessage;
                     break;
                 case LogLevelsEnum.FATAL:
-                    this.log.Debug(logMessage);
+                    this.log.Fatal(logMessage);
                     logMessage = "Fatal: " + logMessage;
                     break;
                 default:
@@ -87,15 +92,15 @@ namespace TLWebsite.Data
             switch (logLevel)
             {
                 case LogLevelsEnum.WARN:
-                    this.log.Debug(logMessage, ex);
+                    this.log.Warn(logMessage, ex);
                     logMessage = "Warn: " + logMessage;
                     break;
                 case LogLevelsEnum.ERROR:
-                    this.log.Debug(logMessage, ex);
+                    this.log.Error(logMessage, ex);
                     logMessage = "Error: " + logMessage;
                     break;
                 case LogLevelsEnum.FATAL:
-                    this.log.Debug(logMessage, ex);
+                    this.log.Fatal(logMessage, ex);
                     logMessage = "Fatal: " + logMessage;
                     break;
                 default:

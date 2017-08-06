@@ -9,20 +9,21 @@
 
 namespace TLWebsite.Data
 {
+    using System;
     using System.Collections.Generic;
-
+    
     public partial class MediaType
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public MediaType()
         {
-            this.Media = new HashSet<Medium>();
+            this.Media = new HashSet<Media>();
         }
     
         public int MediaTypeID { get; set; }
         public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Medium> Media { get; set; }
+        public virtual ICollection<Media> Media { get; set; }
     }
 }

@@ -25,7 +25,7 @@ namespace TLWebsite.Data.Interfaces
 
         string Fatal(string message, Exception ex);
 
-        string Log(string message,LogLevelsEnum logLevel);
+        string Log(string message, LogLevelsEnum logLevel);
 
         string Log(string message, Exception ex, LogLevelsEnum logLevel);
     }

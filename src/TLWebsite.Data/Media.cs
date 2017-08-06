@@ -12,12 +12,12 @@ namespace TLWebsite.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Medium
+    public partial class Media
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Medium()
+        public Media()
         {
-            this.MediaInserts = new HashSet<MediaInsert>();
+            this.MediaInsert = new HashSet<MediaInsert>();
         }
     
         public int MediaID { get; set; }
@@ -38,6 +38,6 @@ namespace TLWebsite.Data
         public virtual User User1 { get; set; }
         public virtual User User2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MediaInsert> MediaInserts { get; set; }
+        public virtual ICollection<MediaInsert> MediaInsert { get; set; }
     }
 }

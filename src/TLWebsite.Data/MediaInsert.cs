@@ -10,7 +10,8 @@
 namespace TLWebsite.Data
 {
     using System;
-
+    using System.Collections.Generic;
+    
     public partial class MediaInsert
     {
         public int MediaInsertID { get; set; }
@@ -29,7 +30,7 @@ namespace TLWebsite.Data
         public Nullable<bool> IsActive { get; set; }
     
         public virtual BlogPost BlogPost { get; set; }
-        public virtual Medium Medium { get; set; }
+        public virtual Media Media { get; set; }
         public virtual StoryPost StoryPost { get; set; }
         public virtual User User { get; set; }
         public virtual User User1 { get; set; }

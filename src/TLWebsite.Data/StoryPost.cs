@@ -17,10 +17,10 @@ namespace TLWebsite.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public StoryPost()
         {
-            this.MediaInserts = new HashSet<MediaInsert>();
-            this.StoryComments = new HashSet<StoryComment>();
-            this.TextInserts = new HashSet<TextInsert>();
-            this.PostTags = new HashSet<PostTag>();
+            this.MediaInsert = new HashSet<MediaInsert>();
+            this.StoryComment = new HashSet<StoryComment>();
+            this.TextInsert = new HashSet<TextInsert>();
+            this.PostTag = new HashSet<PostTag>();
         }
     
         public int StoryPostID { get; set; }
@@ -37,16 +37,16 @@ namespace TLWebsite.Data
         public Nullable<bool> IsActive { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MediaInsert> MediaInserts { get; set; }
+        public virtual ICollection<MediaInsert> MediaInsert { get; set; }
         public virtual Story Story { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<StoryComment> StoryComments { get; set; }
+        public virtual ICollection<StoryComment> StoryComment { get; set; }
         public virtual User User { get; set; }
         public virtual User User1 { get; set; }
         public virtual User User2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TextInsert> TextInserts { get; set; }
+        public virtual ICollection<TextInsert> TextInsert { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PostTag> PostTags { get; set; }
+        public virtual ICollection<PostTag> PostTag { get; set; }
     }
 }

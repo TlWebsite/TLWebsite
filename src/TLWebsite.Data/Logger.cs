@@ -7,13 +7,14 @@ namespace TLWebsite.Data
     {
         private ILogLevel logLevels;
 
-
-        public Logger(string loggerName, ILogLevel plogLevels = null)
+        public Logger(string loggerName)
         {
-            if (plogLevels == null)
-            {
-                this.logLevels = new LogLevel(loggerName);
-            }
+            this.logLevels = new LogLevel(loggerName);
+        }
+
+        public Logger(ILogLevel plogLevels)
+        {
+            this.logLevels = plogLevels;
         }
 
         public ILogLevel Data()
