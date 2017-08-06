@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Http;
-using System.Web.Routing;
+﻿// Copyright (c) Lakithu. All rights reserved.
 
 namespace TLWebsite.API
 {
+    using System.Web.Http;
+
     public class WebApiApplication : System.Web.HttpApplication
     {
         protected void Application_Start()
