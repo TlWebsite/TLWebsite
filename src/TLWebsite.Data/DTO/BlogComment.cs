@@ -17,7 +17,9 @@ namespace TLWebsite.Data.DTO
         public string Comment { get; set; }
 
         public int? CreatedByID { get; set; }
+
         public int? UpdatedByID { get; set; }
+
         public int? ArchivedByID { get; set; }
 
         public DateTime? CreatedAt { get; set; }
@@ -35,5 +37,9 @@ namespace TLWebsite.Data.DTO
         public User ArchivedBy { get; set; }
 
         public BlogComment Parent { get; set; }
+
+        public BlogPost BlogPost { get; set; }
+
+        public ICollection<BlogComment> Children { get; set; }
     }
 }

@@ -26,34 +26,115 @@ namespace TLWebsite.Data.Utils
                         .ForMember(dest => dest.CreatedBy, opt => opt.MapFrom(src => src.CreatedByID))
                         .ForMember(dest => dest.UpdatedBy, opt => opt.MapFrom(src => src.UpdatedByID))
                         .ForMember(dest => dest.ArchivedBy, opt => opt.MapFrom(src => src.ArchivedByID));
-                    cfg.CreateMap<DTO.Media, Media>();
-                    cfg.CreateMap<DTO.MediaInsert, MediaInsert>();
+                    cfg.CreateMap<DTO.Media, Media>()
+                        .ForMember(dest => dest.CreatedBy, opt => opt.MapFrom(src => src.CreatedByID))
+                        .ForMember(dest => dest.UpdatedBy, opt => opt.MapFrom(src => src.UpdatedByID))
+                        .ForMember(dest => dest.ArchivedBy, opt => opt.MapFrom(src => src.ArchivedByID));
+                    cfg.CreateMap<DTO.MediaInsert, MediaInsert>()
+                        .ForMember(dest => dest.CreatedBy, opt => opt.MapFrom(src => src.CreatedByID))
+                        .ForMember(dest => dest.UpdatedBy, opt => opt.MapFrom(src => src.UpdatedByID))
+                        .ForMember(dest => dest.ArchivedBy, opt => opt.MapFrom(src => src.ArchivedByID));
                     cfg.CreateMap<DTO.MediaType, MediaType>();
-                    cfg.CreateMap<DTO.PostTag, PostTag>();
-                    cfg.CreateMap<DTO.Story, Story>();
-                    cfg.CreateMap<DTO.StoryComment, StoryComment>();
-                    cfg.CreateMap<DTO.StoryPost, StoryPost>();
-                    cfg.CreateMap<DTO.TextInsert, TextInsert>();
-                    cfg.CreateMap<DTO.User, User>();
-
+                    cfg.CreateMap<DTO.PostTag, PostTag>()
+                        .ForMember(dest => dest.CreatedBy, opt => opt.MapFrom(src => src.CreatedByID))
+                        .ForMember(dest => dest.UpdatedBy, opt => opt.MapFrom(src => src.UpdatedByID))
+                        .ForMember(dest => dest.ArchivedBy, opt => opt.MapFrom(src => src.ArchivedByID));
+                    cfg.CreateMap<DTO.Story, Story>()
+                        .ForMember(dest => dest.CreatedBy, opt => opt.MapFrom(src => src.CreatedByID))
+                        .ForMember(dest => dest.UpdatedBy, opt => opt.MapFrom(src => src.UpdatedByID))
+                        .ForMember(dest => dest.ArchivedBy, opt => opt.MapFrom(src => src.ArchivedByID));
+                    cfg.CreateMap<DTO.StoryComment, StoryComment>()
+                        .ForMember(dest => dest.Parent, opt => opt.MapFrom(src => src.Parent.StoryCommentID))
+                        .ForMember(dest => dest.CreatedBy, opt => opt.MapFrom(src => src.CreatedByID))
+                        .ForMember(dest => dest.UpdatedBy, opt => opt.MapFrom(src => src.UpdatedByID))
+                        .ForMember(dest => dest.ArchivedBy, opt => opt.MapFrom(src => src.ArchivedByID));
+                    cfg.CreateMap<DTO.StoryPost, StoryPost>()
+                        .ForMember(dest => dest.CreatedBy, opt => opt.MapFrom(src => src.CreatedByID))
+                        .ForMember(dest => dest.UpdatedBy, opt => opt.MapFrom(src => src.UpdatedByID))
+                        .ForMember(dest => dest.ArchivedBy, opt => opt.MapFrom(src => src.ArchivedByID));
+                    cfg.CreateMap<DTO.TextInsert, TextInsert>()
+                        .ForMember(dest => dest.CreatedBy, opt => opt.MapFrom(src => src.CreatedByID))
+                        .ForMember(dest => dest.UpdatedBy, opt => opt.MapFrom(src => src.UpdatedByID))
+                        .ForMember(dest => dest.ArchivedBy, opt => opt.MapFrom(src => src.ArchivedByID));
+                    cfg.CreateMap<DTO.User, User>()
+                        .ForMember(dest => dest.CreatedBy, opt => opt.MapFrom(src => src.CreatedByID))
+                        .ForMember(dest => dest.UpdatedBy, opt => opt.MapFrom(src => src.UpdatedByID))
+                        .ForMember(dest => dest.DeactivatedBy, opt => opt.MapFrom(src => src.DeactivatedByID));
                     cfg.CreateMap<BlogComment, DTO.BlogComment>()
+                        .ForMember(dest => dest.Children, opt => opt.MapFrom(src => src.BlogComment1))
                         .ForMember(dest => dest.Parent, opt => opt.MapFrom(src => src.BlogComment2))
                         .ForMember(dest => dest.CreatedByID, opt => opt.MapFrom(src => src.CreatedBy))
                         .ForMember(dest => dest.UpdatedByID, opt => opt.MapFrom(src => src.UpdatedBy))
-                        .ForMember(dest => dest.ArchivedByID, opt => opt.MapFrom(src => src.ArchivedBy));
+                        .ForMember(dest => dest.ArchivedByID, opt => opt.MapFrom(src => src.ArchivedBy))
+                        .ForMember(dest => dest.CreatedBy, opt => opt.MapFrom(src => src.User))
+                        .ForMember(dest => dest.UpdatedBy, opt => opt.MapFrom(src => src.User1))
+                        .ForMember(dest => dest.ArchivedBy, opt => opt.MapFrom(src => src.User2));
                     cfg.CreateMap<BlogPost, DTO.BlogPost>()
                         .ForMember(dest => dest.CreatedByID, opt => opt.MapFrom(src => src.CreatedBy))
                         .ForMember(dest => dest.UpdatedByID, opt => opt.MapFrom(src => src.UpdatedBy))
-                        .ForMember(dest => dest.ArchivedByID, opt => opt.MapFrom(src => src.ArchivedBy));
-                    cfg.CreateMap<Media, DTO.Media>();
-                    cfg.CreateMap<MediaInsert, DTO.MediaInsert>();
+                        .ForMember(dest => dest.ArchivedByID, opt => opt.MapFrom(src => src.ArchivedBy))
+                        .ForMember(dest => dest.CreatedBy, opt => opt.MapFrom(src => src.User))
+                        .ForMember(dest => dest.UpdatedBy, opt => opt.MapFrom(src => src.User1))
+                        .ForMember(dest => dest.ArchivedBy, opt => opt.MapFrom(src => src.User2));
+                    cfg.CreateMap<Media, DTO.Media>()
+                        .ForMember(dest => dest.CreatedByID, opt => opt.MapFrom(src => src.CreatedBy))
+                        .ForMember(dest => dest.UpdatedByID, opt => opt.MapFrom(src => src.UpdatedBy))
+                        .ForMember(dest => dest.ArchivedByID, opt => opt.MapFrom(src => src.ArchivedBy))
+                        .ForMember(dest => dest.CreatedBy, opt => opt.MapFrom(src => src.User))
+                        .ForMember(dest => dest.UpdatedBy, opt => opt.MapFrom(src => src.User1))
+                        .ForMember(dest => dest.ArchivedBy, opt => opt.MapFrom(src => src.User2));
+                    cfg.CreateMap<MediaInsert, DTO.MediaInsert>()
+                        .ForMember(dest => dest.CreatedByID, opt => opt.MapFrom(src => src.CreatedBy))
+                        .ForMember(dest => dest.UpdatedByID, opt => opt.MapFrom(src => src.UpdatedBy))
+                        .ForMember(dest => dest.ArchivedByID, opt => opt.MapFrom(src => src.ArchivedBy))
+                        .ForMember(dest => dest.CreatedBy, opt => opt.MapFrom(src => src.User))
+                        .ForMember(dest => dest.UpdatedBy, opt => opt.MapFrom(src => src.User1))
+                        .ForMember(dest => dest.ArchivedBy, opt => opt.MapFrom(src => src.User2));
                     cfg.CreateMap<MediaType, DTO.MediaType>();
-                    cfg.CreateMap<PostTag, DTO.PostTag>();
-                    cfg.CreateMap<Story, DTO.Story>();
-                    cfg.CreateMap<StoryComment, DTO.StoryComment>();
-                    cfg.CreateMap<StoryPost, DTO.StoryPost>();
-                    cfg.CreateMap<TextInsert, DTO.TextInsert>();
-                    cfg.CreateMap<User, DTO.User>();
+                    cfg.CreateMap<PostTag, DTO.PostTag>()
+                        .ForMember(dest => dest.CreatedByID, opt => opt.MapFrom(src => src.CreatedBy))
+                        .ForMember(dest => dest.UpdatedByID, opt => opt.MapFrom(src => src.UpdatedBy))
+                        .ForMember(dest => dest.ArchivedByID, opt => opt.MapFrom(src => src.ArchivedBy))
+                        .ForMember(dest => dest.CreatedBy, opt => opt.MapFrom(src => src.User))
+                        .ForMember(dest => dest.UpdatedBy, opt => opt.MapFrom(src => src.User1))
+                        .ForMember(dest => dest.ArchivedBy, opt => opt.MapFrom(src => src.User2));
+                    cfg.CreateMap<Story, DTO.Story>()
+                        .ForMember(dest => dest.CreatedByID, opt => opt.MapFrom(src => src.CreatedBy))
+                        .ForMember(dest => dest.UpdatedByID, opt => opt.MapFrom(src => src.UpdatedBy))
+                        .ForMember(dest => dest.ArchivedByID, opt => opt.MapFrom(src => src.ArchivedBy))
+                        .ForMember(dest => dest.CreatedBy, opt => opt.MapFrom(src => src.User))
+                        .ForMember(dest => dest.UpdatedBy, opt => opt.MapFrom(src => src.User1))
+                        .ForMember(dest => dest.ArchivedBy, opt => opt.MapFrom(src => src.User2));
+                    cfg.CreateMap<StoryComment, DTO.StoryComment>()
+                        .ForMember(dest => dest.Children, opt => opt.MapFrom(src => src.StoryComment1))
+                        .ForMember(dest => dest.Parent, opt => opt.MapFrom(src => src.StoryComment2))
+                        .ForMember(dest => dest.CreatedByID, opt => opt.MapFrom(src => src.CreatedBy))
+                        .ForMember(dest => dest.UpdatedByID, opt => opt.MapFrom(src => src.UpdatedBy))
+                        .ForMember(dest => dest.ArchivedByID, opt => opt.MapFrom(src => src.ArchivedBy))
+                        .ForMember(dest => dest.CreatedBy, opt => opt.MapFrom(src => src.User))
+                        .ForMember(dest => dest.UpdatedBy, opt => opt.MapFrom(src => src.User1))
+                        .ForMember(dest => dest.ArchivedBy, opt => opt.MapFrom(src => src.User2));
+                    cfg.CreateMap<StoryPost, DTO.StoryPost>()
+                        .ForMember(dest => dest.CreatedByID, opt => opt.MapFrom(src => src.CreatedBy))
+                        .ForMember(dest => dest.UpdatedByID, opt => opt.MapFrom(src => src.UpdatedBy))
+                        .ForMember(dest => dest.ArchivedByID, opt => opt.MapFrom(src => src.ArchivedBy))
+                        .ForMember(dest => dest.CreatedBy, opt => opt.MapFrom(src => src.User))
+                        .ForMember(dest => dest.UpdatedBy, opt => opt.MapFrom(src => src.User1))
+                        .ForMember(dest => dest.ArchivedBy, opt => opt.MapFrom(src => src.User2));
+                    cfg.CreateMap<TextInsert, DTO.TextInsert>()
+                        .ForMember(dest => dest.CreatedByID, opt => opt.MapFrom(src => src.CreatedBy))
+                        .ForMember(dest => dest.UpdatedByID, opt => opt.MapFrom(src => src.UpdatedBy))
+                        .ForMember(dest => dest.ArchivedByID, opt => opt.MapFrom(src => src.ArchivedBy))
+                        .ForMember(dest => dest.CreatedBy, opt => opt.MapFrom(src => src.User))
+                        .ForMember(dest => dest.UpdatedBy, opt => opt.MapFrom(src => src.User1))
+                        .ForMember(dest => dest.ArchivedBy, opt => opt.MapFrom(src => src.User2));
+                    cfg.CreateMap<User, DTO.User>()
+                        .ForMember(dest => dest.CreatedByID, opt => opt.MapFrom(src => src.CreatedBy))
+                        .ForMember(dest => dest.UpdatedByID, opt => opt.MapFrom(src => src.UpdatedBy))
+                        .ForMember(dest => dest.DeactivatedByID, opt => opt.MapFrom(src => src.DeactivatedBy))
+                        .ForMember(dest => dest.CreatedBy, opt => opt.MapFrom(src => src.User1))
+                        .ForMember(dest => dest.UpdatedBy, opt => opt.MapFrom(src => src.User11))
+                        .ForMember(dest => dest.DeactivatedBy, opt => opt.MapFrom(src => src.User12));
                 });
         }
     }
