@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="57ed9f1e86d04c689f3151969baf44e5" Name="Diagram1">
+        <EntityTypeShape EntityType="TLWebsiteDTEModel.BlogComment" Width="1.5" PointX="5.25" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLWebsiteDTEModel.BlogPost" Width="1.5" PointX="3" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLWebsiteDTEModel.Media" Width="1.5" PointX="3" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLWebsiteDTEModel.MediaInsert" Width="1.5" PointX="8.25" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLWebsiteDTEModel.MediaType" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLWebsiteDTEModel.PostTag" Width="1.5" PointX="5.25" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLWebsiteDTEModel.Story" Width="1.5" PointX="3" PointY="28.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLWebsiteDTEModel.StoryComment" Width="1.5" PointX="10.75" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLWebsiteDTEModel.StoryPost" Width="1.5" PointX="7.5" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLWebsiteDTEModel.TextInsert" Width="1.5" PointX="8.25" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLWebsiteDTEModel.User" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_BlogComment_Blog" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_BlogComment_BlogComment" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_BlogComment_UserArchived" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_BlogComment_UserCreated" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_BlogComment_UserUpdated" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_BlogPost_UserArchived" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_BlogPost_UserCreated" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_BlogPost_UserUpdated" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_MediaInsert_BlogPost" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_TextInsert_BlogPost" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_Media_MediaType" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_Media_UserArchived" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_Media_UserCreated" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_Media_UserUpdated" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_MediaInsert_Media" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_MediaInsert_StoryPost" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_MediaInsert_UserArchived" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_MediaInsert_UserCreated" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_MediaInsert_UserUpdated" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_PostTag_UserArchived" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_PostTag_UserCreated" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_PostTag_UserUpdated" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_Story_UserArchived" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_Story_UserCreated" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_Story_UserUpdated" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_StoryPost_Story" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_StoryComment_Story" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_StoryComment_StoryComment" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_StoryComment_UserArchived" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_StoryComment_UserCreated" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_StoryComment_UserUpdated" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_StoryPost_UserArchived" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_StoryPost_UserCreated" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_StoryPost_UserUpdated" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_TextInsert_StoryPost" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_TextInsert_UserArchived" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_TextInsert_UserCreated" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_TextInsert_UserUpdated" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_User_CreatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_User_DeactivatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.FK_User_UpdatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.PostTag_BlogPost" ManuallyRouted="false" />
+        <AssociationConnector Association="TLWebsiteDTEModel.PostTag_StoryPost" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

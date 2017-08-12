@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TLWebsite.Tests", "TLWebsit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TLWebsite.API", "TLWebsite.API\TLWebsite.API.csproj", "{7BA89920-3D5C-40F5-B0F8-AACDD4E8C1F8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TLWebsite.Data", "TLWebsite.Data\TLWebsite.Data.csproj", "{BB776B2C-D0FB-435F-9BA6-EA6ED00A8168}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7BA89920-3D5C-40F5-B0F8-AACDD4E8C1F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BA89920-3D5C-40F5-B0F8-AACDD4E8C1F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BA89920-3D5C-40F5-B0F8-AACDD4E8C1F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB776B2C-D0FB-435F-9BA6-EA6ED00A8168}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB776B2C-D0FB-435F-9BA6-EA6ED00A8168}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB776B2C-D0FB-435F-9BA6-EA6ED00A8168}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB776B2C-D0FB-435F-9BA6-EA6ED00A8168}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

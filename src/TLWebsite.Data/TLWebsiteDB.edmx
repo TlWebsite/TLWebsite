@@ -1,0 +1,2119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TLWebsiteDTEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BlogComment">
+          <Key>
+            <PropertyRef Name="BlogCommentID" />
+          </Key>
+          <Property Name="BlogCommentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BlogPostID" Type="int" Nullable="false" />
+          <Property Name="Parent" Type="int" />
+          <Property Name="Comment" Type="varchar" MaxLength="500" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="ArchivedAt" Type="datetime" />
+          <Property Name="ArchivedBy" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="BlogPost">
+          <Key>
+            <PropertyRef Name="BlogPostID" />
+          </Key>
+          <Property Name="BlogPostID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Post_Number" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="ArchivedAt" Type="datetime" />
+          <Property Name="ArchivedBy" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="Media">
+          <Key>
+            <PropertyRef Name="MediaID" />
+          </Key>
+          <Property Name="MediaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MediaTypeID" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="MediaPath" Type="varchar(max)" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="ArchivedAt" Type="datetime" />
+          <Property Name="ArchivedBy" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="MediaInsert">
+          <Key>
+            <PropertyRef Name="MediaInsertID" />
+          </Key>
+          <Property Name="MediaInsertID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MediaID" Type="int" Nullable="false" />
+          <Property Name="BlogPostID" Type="int" />
+          <Property Name="StoryPostID" Type="int" />
+          <Property Name="OrderNumber" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="ArchivedAt" Type="datetime" />
+          <Property Name="ArchivedBy" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="MediaType">
+          <Key>
+            <PropertyRef Name="MediaTypeID" />
+          </Key>
+          <Property Name="MediaTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="PostTag">
+          <Key>
+            <PropertyRef Name="PostTagID" />
+          </Key>
+          <Property Name="PostTagID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="ArchivedAt" Type="datetime" />
+          <Property Name="ArchivedBy" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="PostTag_BlogPost">
+          <Key>
+            <PropertyRef Name="PostTagID" />
+            <PropertyRef Name="BlogPostID" />
+          </Key>
+          <Property Name="PostTagID" Type="int" Nullable="false" />
+          <Property Name="BlogPostID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PostTag_StoryPost">
+          <Key>
+            <PropertyRef Name="PostTagID" />
+            <PropertyRef Name="StoryPostID" />
+          </Key>
+          <Property Name="PostTagID" Type="int" Nullable="false" />
+          <Property Name="StoryPostID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Story">
+          <Key>
+            <PropertyRef Name="StoryID" />
+          </Key>
+          <Property Name="StoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="ArchivedAt" Type="datetime" />
+          <Property Name="ArchivedBy" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="StoryComment">
+          <Key>
+            <PropertyRef Name="StoryCommentID" />
+          </Key>
+          <Property Name="StoryCommentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StoryPostID" Type="int" Nullable="false" />
+          <Property Name="Parent" Type="int" />
+          <Property Name="Comment" Type="varchar" MaxLength="500" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="ArchivedAt" Type="datetime" />
+          <Property Name="ArchivedBy" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="StoryPost">
+          <Key>
+            <PropertyRef Name="StoryPostID" />
+          </Key>
+          <Property Name="StoryPostID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StoryID" Type="int" Nullable="false" />
+          <Property Name="Post_Number" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="ArchivedAt" Type="datetime" />
+          <Property Name="ArchivedBy" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="TextInsert">
+          <Key>
+            <PropertyRef Name="TextInsertID" />
+          </Key>
+          <Property Name="TextInsertID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BlogPostID" Type="int" />
+          <Property Name="StoryPostID" Type="int" />
+          <Property Name="Value" Type="varchar(max)" />
+          <Property Name="OrderNumber" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="ArchivedAt" Type="datetime" />
+          <Property Name="ArchivedBy" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IsAdmin" Type="bit" />
+          <Property Name="FirstName" Type="varchar" MaxLength="100" />
+          <Property Name="LastName" Type="varchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Username" Type="varchar" MaxLength="100" />
+          <Property Name="Password" Type="varchar" MaxLength="100" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="DeactivatedAt" Type="datetime" />
+          <Property Name="DeactivatedBy" Type="int" />
+          <Property Name="isActive" Type="bit" />
+        </EntityType>
+        <Association Name="FK_BlogComment_Blog">
+          <End Role="BlogPost" Type="Self.BlogPost" Multiplicity="1" />
+          <End Role="BlogComment" Type="Self.BlogComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BlogPost">
+              <PropertyRef Name="BlogPostID" />
+            </Principal>
+            <Dependent Role="BlogComment">
+              <PropertyRef Name="BlogPostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlogComment_BlogComment">
+          <End Role="BlogComment" Type="Self.BlogComment" Multiplicity="0..1" />
+          <End Role="BlogComment1" Type="Self.BlogComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BlogComment">
+              <PropertyRef Name="BlogCommentID" />
+            </Principal>
+            <Dependent Role="BlogComment1">
+              <PropertyRef Name="Parent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlogComment_UserArchived">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="BlogComment" Type="Self.BlogComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="BlogComment">
+              <PropertyRef Name="ArchivedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlogComment_UserCreated">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="BlogComment" Type="Self.BlogComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="BlogComment">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlogComment_UserUpdated">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="BlogComment" Type="Self.BlogComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="BlogComment">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlogPost_UserArchived">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="BlogPost" Type="Self.BlogPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="BlogPost">
+              <PropertyRef Name="ArchivedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlogPost_UserCreated">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="BlogPost" Type="Self.BlogPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="BlogPost">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlogPost_UserUpdated">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="BlogPost" Type="Self.BlogPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="BlogPost">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Media_MediaType">
+          <End Role="MediaType" Type="Self.MediaType" Multiplicity="0..1" />
+          <End Role="Media" Type="Self.Media" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MediaType">
+              <PropertyRef Name="MediaTypeID" />
+            </Principal>
+            <Dependent Role="Media">
+              <PropertyRef Name="MediaTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Media_UserArchived">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Media" Type="Self.Media" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Media">
+              <PropertyRef Name="ArchivedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Media_UserCreated">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Media" Type="Self.Media" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Media">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Media_UserUpdated">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Media" Type="Self.Media" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Media">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MediaInsert_BlogPost">
+          <End Role="BlogPost" Type="Self.BlogPost" Multiplicity="0..1" />
+          <End Role="MediaInsert" Type="Self.MediaInsert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BlogPost">
+              <PropertyRef Name="BlogPostID" />
+            </Principal>
+            <Dependent Role="MediaInsert">
+              <PropertyRef Name="BlogPostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MediaInsert_Media">
+          <End Role="Media" Type="Self.Media" Multiplicity="1" />
+          <End Role="MediaInsert" Type="Self.MediaInsert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Media">
+              <PropertyRef Name="MediaID" />
+            </Principal>
+            <Dependent Role="MediaInsert">
+              <PropertyRef Name="MediaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MediaInsert_StoryPost">
+          <End Role="StoryPost" Type="Self.StoryPost" Multiplicity="0..1" />
+          <End Role="MediaInsert" Type="Self.MediaInsert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StoryPost">
+              <PropertyRef Name="StoryPostID" />
+            </Principal>
+            <Dependent Role="MediaInsert">
+              <PropertyRef Name="StoryPostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MediaInsert_UserArchived">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="MediaInsert" Type="Self.MediaInsert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="MediaInsert">
+              <PropertyRef Name="ArchivedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MediaInsert_UserCreated">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="MediaInsert" Type="Self.MediaInsert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="MediaInsert">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MediaInsert_UserUpdated">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="MediaInsert" Type="Self.MediaInsert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="MediaInsert">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PostTag_BlogPost_BlogPost">
+          <End Role="BlogPost" Type="Self.BlogPost" Multiplicity="1" />
+          <End Role="PostTag_BlogPost" Type="Self.PostTag_BlogPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BlogPost">
+              <PropertyRef Name="BlogPostID" />
+            </Principal>
+            <Dependent Role="PostTag_BlogPost">
+              <PropertyRef Name="BlogPostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PostTag_BlogPost_PostTag">
+          <End Role="PostTag" Type="Self.PostTag" Multiplicity="1" />
+          <End Role="PostTag_BlogPost" Type="Self.PostTag_BlogPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PostTag">
+              <PropertyRef Name="PostTagID" />
+            </Principal>
+            <Dependent Role="PostTag_BlogPost">
+              <PropertyRef Name="PostTagID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PostTag_StoryPost_PostTag">
+          <End Role="PostTag" Type="Self.PostTag" Multiplicity="1" />
+          <End Role="PostTag_StoryPost" Type="Self.PostTag_StoryPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PostTag">
+              <PropertyRef Name="PostTagID" />
+            </Principal>
+            <Dependent Role="PostTag_StoryPost">
+              <PropertyRef Name="PostTagID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PostTag_StoryPost_StoryPost">
+          <End Role="StoryPost" Type="Self.StoryPost" Multiplicity="1" />
+          <End Role="PostTag_StoryPost" Type="Self.PostTag_StoryPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StoryPost">
+              <PropertyRef Name="StoryPostID" />
+            </Principal>
+            <Dependent Role="PostTag_StoryPost">
+              <PropertyRef Name="StoryPostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PostTag_UserArchived">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="PostTag" Type="Self.PostTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="PostTag">
+              <PropertyRef Name="ArchivedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PostTag_UserCreated">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="PostTag" Type="Self.PostTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="PostTag">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PostTag_UserUpdated">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="PostTag" Type="Self.PostTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="PostTag">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Story_UserArchived">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Story" Type="Self.Story" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Story">
+              <PropertyRef Name="ArchivedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Story_UserCreated">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Story" Type="Self.Story" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Story">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Story_UserUpdated">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Story" Type="Self.Story" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Story">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StoryComment_Story">
+          <End Role="StoryPost" Type="Self.StoryPost" Multiplicity="1" />
+          <End Role="StoryComment" Type="Self.StoryComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StoryPost">
+              <PropertyRef Name="StoryPostID" />
+            </Principal>
+            <Dependent Role="StoryComment">
+              <PropertyRef Name="StoryPostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StoryComment_StoryComment">
+          <End Role="StoryComment" Type="Self.StoryComment" Multiplicity="0..1" />
+          <End Role="StoryComment1" Type="Self.StoryComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StoryComment">
+              <PropertyRef Name="StoryCommentID" />
+            </Principal>
+            <Dependent Role="StoryComment1">
+              <PropertyRef Name="Parent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StoryComment_UserArchived">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="StoryComment" Type="Self.StoryComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="StoryComment">
+              <PropertyRef Name="ArchivedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StoryComment_UserCreated">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="StoryComment" Type="Self.StoryComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="StoryComment">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StoryComment_UserUpdated">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="StoryComment" Type="Self.StoryComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="StoryComment">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StoryPost_Story">
+          <End Role="Story" Type="Self.Story" Multiplicity="1" />
+          <End Role="StoryPost" Type="Self.StoryPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Story">
+              <PropertyRef Name="StoryID" />
+            </Principal>
+            <Dependent Role="StoryPost">
+              <PropertyRef Name="StoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StoryPost_UserArchived">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="StoryPost" Type="Self.StoryPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="StoryPost">
+              <PropertyRef Name="ArchivedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StoryPost_UserCreated">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="StoryPost" Type="Self.StoryPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="StoryPost">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StoryPost_UserUpdated">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="StoryPost" Type="Self.StoryPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="StoryPost">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TextInsert_BlogPost">
+          <End Role="BlogPost" Type="Self.BlogPost" Multiplicity="0..1" />
+          <End Role="TextInsert" Type="Self.TextInsert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BlogPost">
+              <PropertyRef Name="BlogPostID" />
+            </Principal>
+            <Dependent Role="TextInsert">
+              <PropertyRef Name="BlogPostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TextInsert_StoryPost">
+          <End Role="StoryPost" Type="Self.StoryPost" Multiplicity="0..1" />
+          <End Role="TextInsert" Type="Self.TextInsert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StoryPost">
+              <PropertyRef Name="StoryPostID" />
+            </Principal>
+            <Dependent Role="TextInsert">
+              <PropertyRef Name="StoryPostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TextInsert_UserArchived">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="TextInsert" Type="Self.TextInsert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="TextInsert">
+              <PropertyRef Name="ArchivedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TextInsert_UserCreated">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="TextInsert" Type="Self.TextInsert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="TextInsert">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TextInsert_UserUpdated">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="TextInsert" Type="Self.TextInsert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="TextInsert">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_CreatedBy">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="User1" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="User1">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_DeactivatedBy">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="User1" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="User1">
+              <PropertyRef Name="DeactivatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_UpdatedBy">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="User1" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="User1">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TLWebsiteDTEModelStoreContainer">
+          <EntitySet Name="BlogComment" EntityType="Self.BlogComment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BlogPost" EntityType="Self.BlogPost" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Media" EntityType="Self.Media" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MediaInsert" EntityType="Self.MediaInsert" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MediaType" EntityType="Self.MediaType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PostTag" EntityType="Self.PostTag" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PostTag_BlogPost" EntityType="Self.PostTag_BlogPost" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PostTag_StoryPost" EntityType="Self.PostTag_StoryPost" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Story" EntityType="Self.Story" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StoryComment" EntityType="Self.StoryComment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StoryPost" EntityType="Self.StoryPost" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TextInsert" EntityType="Self.TextInsert" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_BlogComment_Blog" Association="Self.FK_BlogComment_Blog">
+            <End Role="BlogPost" EntitySet="BlogPost" />
+            <End Role="BlogComment" EntitySet="BlogComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlogComment_BlogComment" Association="Self.FK_BlogComment_BlogComment">
+            <End Role="BlogComment" EntitySet="BlogComment" />
+            <End Role="BlogComment1" EntitySet="BlogComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlogComment_UserArchived" Association="Self.FK_BlogComment_UserArchived">
+            <End Role="User" EntitySet="User" />
+            <End Role="BlogComment" EntitySet="BlogComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlogComment_UserCreated" Association="Self.FK_BlogComment_UserCreated">
+            <End Role="User" EntitySet="User" />
+            <End Role="BlogComment" EntitySet="BlogComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlogComment_UserUpdated" Association="Self.FK_BlogComment_UserUpdated">
+            <End Role="User" EntitySet="User" />
+            <End Role="BlogComment" EntitySet="BlogComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlogPost_UserArchived" Association="Self.FK_BlogPost_UserArchived">
+            <End Role="User" EntitySet="User" />
+            <End Role="BlogPost" EntitySet="BlogPost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlogPost_UserCreated" Association="Self.FK_BlogPost_UserCreated">
+            <End Role="User" EntitySet="User" />
+            <End Role="BlogPost" EntitySet="BlogPost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlogPost_UserUpdated" Association="Self.FK_BlogPost_UserUpdated">
+            <End Role="User" EntitySet="User" />
+            <End Role="BlogPost" EntitySet="BlogPost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Media_MediaType" Association="Self.FK_Media_MediaType">
+            <End Role="MediaType" EntitySet="MediaType" />
+            <End Role="Media" EntitySet="Media" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Media_UserArchived" Association="Self.FK_Media_UserArchived">
+            <End Role="User" EntitySet="User" />
+            <End Role="Media" EntitySet="Media" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Media_UserCreated" Association="Self.FK_Media_UserCreated">
+            <End Role="User" EntitySet="User" />
+            <End Role="Media" EntitySet="Media" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Media_UserUpdated" Association="Self.FK_Media_UserUpdated">
+            <End Role="User" EntitySet="User" />
+            <End Role="Media" EntitySet="Media" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MediaInsert_BlogPost" Association="Self.FK_MediaInsert_BlogPost">
+            <End Role="BlogPost" EntitySet="BlogPost" />
+            <End Role="MediaInsert" EntitySet="MediaInsert" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MediaInsert_Media" Association="Self.FK_MediaInsert_Media">
+            <End Role="Media" EntitySet="Media" />
+            <End Role="MediaInsert" EntitySet="MediaInsert" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MediaInsert_StoryPost" Association="Self.FK_MediaInsert_StoryPost">
+            <End Role="StoryPost" EntitySet="StoryPost" />
+            <End Role="MediaInsert" EntitySet="MediaInsert" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MediaInsert_UserArchived" Association="Self.FK_MediaInsert_UserArchived">
+            <End Role="User" EntitySet="User" />
+            <End Role="MediaInsert" EntitySet="MediaInsert" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MediaInsert_UserCreated" Association="Self.FK_MediaInsert_UserCreated">
+            <End Role="User" EntitySet="User" />
+            <End Role="MediaInsert" EntitySet="MediaInsert" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MediaInsert_UserUpdated" Association="Self.FK_MediaInsert_UserUpdated">
+            <End Role="User" EntitySet="User" />
+            <End Role="MediaInsert" EntitySet="MediaInsert" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostTag_BlogPost_BlogPost" Association="Self.FK_PostTag_BlogPost_BlogPost">
+            <End Role="BlogPost" EntitySet="BlogPost" />
+            <End Role="PostTag_BlogPost" EntitySet="PostTag_BlogPost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostTag_BlogPost_PostTag" Association="Self.FK_PostTag_BlogPost_PostTag">
+            <End Role="PostTag" EntitySet="PostTag" />
+            <End Role="PostTag_BlogPost" EntitySet="PostTag_BlogPost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostTag_StoryPost_PostTag" Association="Self.FK_PostTag_StoryPost_PostTag">
+            <End Role="PostTag" EntitySet="PostTag" />
+            <End Role="PostTag_StoryPost" EntitySet="PostTag_StoryPost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostTag_StoryPost_StoryPost" Association="Self.FK_PostTag_StoryPost_StoryPost">
+            <End Role="StoryPost" EntitySet="StoryPost" />
+            <End Role="PostTag_StoryPost" EntitySet="PostTag_StoryPost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostTag_UserArchived" Association="Self.FK_PostTag_UserArchived">
+            <End Role="User" EntitySet="User" />
+            <End Role="PostTag" EntitySet="PostTag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostTag_UserCreated" Association="Self.FK_PostTag_UserCreated">
+            <End Role="User" EntitySet="User" />
+            <End Role="PostTag" EntitySet="PostTag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostTag_UserUpdated" Association="Self.FK_PostTag_UserUpdated">
+            <End Role="User" EntitySet="User" />
+            <End Role="PostTag" EntitySet="PostTag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Story_UserArchived" Association="Self.FK_Story_UserArchived">
+            <End Role="User" EntitySet="User" />
+            <End Role="Story" EntitySet="Story" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Story_UserCreated" Association="Self.FK_Story_UserCreated">
+            <End Role="User" EntitySet="User" />
+            <End Role="Story" EntitySet="Story" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Story_UserUpdated" Association="Self.FK_Story_UserUpdated">
+            <End Role="User" EntitySet="User" />
+            <End Role="Story" EntitySet="Story" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StoryComment_Story" Association="Self.FK_StoryComment_Story">
+            <End Role="StoryPost" EntitySet="StoryPost" />
+            <End Role="StoryComment" EntitySet="StoryComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StoryComment_StoryComment" Association="Self.FK_StoryComment_StoryComment">
+            <End Role="StoryComment" EntitySet="StoryComment" />
+            <End Role="StoryComment1" EntitySet="StoryComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StoryComment_UserArchived" Association="Self.FK_StoryComment_UserArchived">
+            <End Role="User" EntitySet="User" />
+            <End Role="StoryComment" EntitySet="StoryComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StoryComment_UserCreated" Association="Self.FK_StoryComment_UserCreated">
+            <End Role="User" EntitySet="User" />
+            <End Role="StoryComment" EntitySet="StoryComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StoryComment_UserUpdated" Association="Self.FK_StoryComment_UserUpdated">
+            <End Role="User" EntitySet="User" />
+            <End Role="StoryComment" EntitySet="StoryComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StoryPost_Story" Association="Self.FK_StoryPost_Story">
+            <End Role="Story" EntitySet="Story" />
+            <End Role="StoryPost" EntitySet="StoryPost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StoryPost_UserArchived" Association="Self.FK_StoryPost_UserArchived">
+            <End Role="User" EntitySet="User" />
+            <End Role="StoryPost" EntitySet="StoryPost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StoryPost_UserCreated" Association="Self.FK_StoryPost_UserCreated">
+            <End Role="User" EntitySet="User" />
+            <End Role="StoryPost" EntitySet="StoryPost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StoryPost_UserUpdated" Association="Self.FK_StoryPost_UserUpdated">
+            <End Role="User" EntitySet="User" />
+            <End Role="StoryPost" EntitySet="StoryPost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TextInsert_BlogPost" Association="Self.FK_TextInsert_BlogPost">
+            <End Role="BlogPost" EntitySet="BlogPost" />
+            <End Role="TextInsert" EntitySet="TextInsert" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TextInsert_StoryPost" Association="Self.FK_TextInsert_StoryPost">
+            <End Role="StoryPost" EntitySet="StoryPost" />
+            <End Role="TextInsert" EntitySet="TextInsert" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TextInsert_UserArchived" Association="Self.FK_TextInsert_UserArchived">
+            <End Role="User" EntitySet="User" />
+            <End Role="TextInsert" EntitySet="TextInsert" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TextInsert_UserCreated" Association="Self.FK_TextInsert_UserCreated">
+            <End Role="User" EntitySet="User" />
+            <End Role="TextInsert" EntitySet="TextInsert" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TextInsert_UserUpdated" Association="Self.FK_TextInsert_UserUpdated">
+            <End Role="User" EntitySet="User" />
+            <End Role="TextInsert" EntitySet="TextInsert" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_CreatedBy" Association="Self.FK_User_CreatedBy">
+            <End Role="User" EntitySet="User" />
+            <End Role="User1" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_DeactivatedBy" Association="Self.FK_User_DeactivatedBy">
+            <End Role="User" EntitySet="User" />
+            <End Role="User1" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_UpdatedBy" Association="Self.FK_User_UpdatedBy">
+            <End Role="User" EntitySet="User" />
+            <End Role="User1" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TLWebsiteDTEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BlogComment">
+          <Key>
+            <PropertyRef Name="BlogCommentID" />
+          </Key>
+          <Property Name="BlogCommentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BlogPostID" Type="Int32" Nullable="false" />
+          <Property Name="Parent" Type="Int32" />
+          <Property Name="Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="ArchivedAt" Type="DateTime" Precision="3" />
+          <Property Name="ArchivedBy" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="BlogPost" Relationship="Self.FK_BlogComment_Blog" FromRole="BlogComment" ToRole="BlogPost" />
+          <NavigationProperty Name="BlogComment1" Relationship="Self.FK_BlogComment_BlogComment" FromRole="BlogComment" ToRole="BlogComment1" />
+          <NavigationProperty Name="BlogComment2" Relationship="Self.FK_BlogComment_BlogComment" FromRole="BlogComment1" ToRole="BlogComment" />
+          <NavigationProperty Name="User" Relationship="Self.FK_BlogComment_UserArchived" FromRole="BlogComment" ToRole="User" />
+          <NavigationProperty Name="User1" Relationship="Self.FK_BlogComment_UserCreated" FromRole="BlogComment" ToRole="User" />
+          <NavigationProperty Name="User2" Relationship="Self.FK_BlogComment_UserUpdated" FromRole="BlogComment" ToRole="User" />
+        </EntityType>
+        <EntityType Name="BlogPost">
+          <Key>
+            <PropertyRef Name="BlogPostID" />
+          </Key>
+          <Property Name="BlogPostID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Post_Number" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="ArchivedAt" Type="DateTime" Precision="3" />
+          <Property Name="ArchivedBy" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="BlogComment" Relationship="Self.FK_BlogComment_Blog" FromRole="BlogPost" ToRole="BlogComment" />
+          <NavigationProperty Name="User" Relationship="Self.FK_BlogPost_UserArchived" FromRole="BlogPost" ToRole="User" />
+          <NavigationProperty Name="User1" Relationship="Self.FK_BlogPost_UserCreated" FromRole="BlogPost" ToRole="User" />
+          <NavigationProperty Name="User2" Relationship="Self.FK_BlogPost_UserUpdated" FromRole="BlogPost" ToRole="User" />
+          <NavigationProperty Name="MediaInsert" Relationship="Self.FK_MediaInsert_BlogPost" FromRole="BlogPost" ToRole="MediaInsert" />
+          <NavigationProperty Name="TextInsert" Relationship="Self.FK_TextInsert_BlogPost" FromRole="BlogPost" ToRole="TextInsert" />
+          <NavigationProperty Name="PostTag" Relationship="Self.PostTag_BlogPost" FromRole="BlogPost" ToRole="PostTag" />
+        </EntityType>
+        <EntityType Name="Media">
+          <Key>
+            <PropertyRef Name="MediaID" />
+          </Key>
+          <Property Name="MediaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MediaTypeID" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="MediaPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="ArchivedAt" Type="DateTime" Precision="3" />
+          <Property Name="ArchivedBy" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="MediaType" Relationship="Self.FK_Media_MediaType" FromRole="Media" ToRole="MediaType" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Media_UserArchived" FromRole="Media" ToRole="User" />
+          <NavigationProperty Name="User1" Relationship="Self.FK_Media_UserCreated" FromRole="Media" ToRole="User" />
+          <NavigationProperty Name="User2" Relationship="Self.FK_Media_UserUpdated" FromRole="Media" ToRole="User" />
+          <NavigationProperty Name="MediaInsert" Relationship="Self.FK_MediaInsert_Media" FromRole="Media" ToRole="MediaInsert" />
+        </EntityType>
+        <EntityType Name="MediaInsert">
+          <Key>
+            <PropertyRef Name="MediaInsertID" />
+          </Key>
+          <Property Name="MediaInsertID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MediaID" Type="Int32" Nullable="false" />
+          <Property Name="BlogPostID" Type="Int32" />
+          <Property Name="StoryPostID" Type="Int32" />
+          <Property Name="OrderNumber" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="ArchivedAt" Type="DateTime" Precision="3" />
+          <Property Name="ArchivedBy" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="BlogPost" Relationship="Self.FK_MediaInsert_BlogPost" FromRole="MediaInsert" ToRole="BlogPost" />
+          <NavigationProperty Name="Media" Relationship="Self.FK_MediaInsert_Media" FromRole="MediaInsert" ToRole="Media" />
+          <NavigationProperty Name="StoryPost" Relationship="Self.FK_MediaInsert_StoryPost" FromRole="MediaInsert" ToRole="StoryPost" />
+          <NavigationProperty Name="User" Relationship="Self.FK_MediaInsert_UserArchived" FromRole="MediaInsert" ToRole="User" />
+          <NavigationProperty Name="User1" Relationship="Self.FK_MediaInsert_UserCreated" FromRole="MediaInsert" ToRole="User" />
+          <NavigationProperty Name="User2" Relationship="Self.FK_MediaInsert_UserUpdated" FromRole="MediaInsert" ToRole="User" />
+        </EntityType>
+        <EntityType Name="MediaType">
+          <Key>
+            <PropertyRef Name="MediaTypeID" />
+          </Key>
+          <Property Name="MediaTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Media" Relationship="Self.FK_Media_MediaType" FromRole="MediaType" ToRole="Media" />
+        </EntityType>
+        <EntityType Name="PostTag">
+          <Key>
+            <PropertyRef Name="PostTagID" />
+          </Key>
+          <Property Name="PostTagID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="ArchivedAt" Type="DateTime" Precision="3" />
+          <Property Name="ArchivedBy" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="User" Relationship="Self.FK_PostTag_UserArchived" FromRole="PostTag" ToRole="User" />
+          <NavigationProperty Name="User1" Relationship="Self.FK_PostTag_UserCreated" FromRole="PostTag" ToRole="User" />
+          <NavigationProperty Name="User2" Relationship="Self.FK_PostTag_UserUpdated" FromRole="PostTag" ToRole="User" />
+          <NavigationProperty Name="BlogPost" Relationship="Self.PostTag_BlogPost" FromRole="PostTag" ToRole="BlogPost" />
+          <NavigationProperty Name="StoryPost" Relationship="Self.PostTag_StoryPost" FromRole="PostTag" ToRole="StoryPost" />
+        </EntityType>
+        <EntityType Name="Story">
+          <Key>
+            <PropertyRef Name="StoryID" />
+          </Key>
+          <Property Name="StoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="ArchivedAt" Type="DateTime" Precision="3" />
+          <Property Name="ArchivedBy" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Story_UserArchived" FromRole="Story" ToRole="User" />
+          <NavigationProperty Name="User1" Relationship="Self.FK_Story_UserCreated" FromRole="Story" ToRole="User" />
+          <NavigationProperty Name="User2" Relationship="Self.FK_Story_UserUpdated" FromRole="Story" ToRole="User" />
+          <NavigationProperty Name="StoryPost" Relationship="Self.FK_StoryPost_Story" FromRole="Story" ToRole="StoryPost" />
+        </EntityType>
+        <EntityType Name="StoryComment">
+          <Key>
+            <PropertyRef Name="StoryCommentID" />
+          </Key>
+          <Property Name="StoryCommentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StoryPostID" Type="Int32" Nullable="false" />
+          <Property Name="Parent" Type="Int32" />
+          <Property Name="Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="ArchivedAt" Type="DateTime" Precision="3" />
+          <Property Name="ArchivedBy" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="StoryPost" Relationship="Self.FK_StoryComment_Story" FromRole="StoryComment" ToRole="StoryPost" />
+          <NavigationProperty Name="StoryComment1" Relationship="Self.FK_StoryComment_StoryComment" FromRole="StoryComment" ToRole="StoryComment1" />
+          <NavigationProperty Name="StoryComment2" Relationship="Self.FK_StoryComment_StoryComment" FromRole="StoryComment1" ToRole="StoryComment" />
+          <NavigationProperty Name="User" Relationship="Self.FK_StoryComment_UserArchived" FromRole="StoryComment" ToRole="User" />
+          <NavigationProperty Name="User1" Relationship="Self.FK_StoryComment_UserCreated" FromRole="StoryComment" ToRole="User" />
+          <NavigationProperty Name="User2" Relationship="Self.FK_StoryComment_UserUpdated" FromRole="StoryComment" ToRole="User" />
+        </EntityType>
+        <EntityType Name="StoryPost">
+          <Key>
+            <PropertyRef Name="StoryPostID" />
+          </Key>
+          <Property Name="StoryPostID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StoryID" Type="Int32" Nullable="false" />
+          <Property Name="Post_Number" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="ArchivedAt" Type="DateTime" Precision="3" />
+          <Property Name="ArchivedBy" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="MediaInsert" Relationship="Self.FK_MediaInsert_StoryPost" FromRole="StoryPost" ToRole="MediaInsert" />
+          <NavigationProperty Name="Story" Relationship="Self.FK_StoryPost_Story" FromRole="StoryPost" ToRole="Story" />
+          <NavigationProperty Name="StoryComment" Relationship="Self.FK_StoryComment_Story" FromRole="StoryPost" ToRole="StoryComment" />
+          <NavigationProperty Name="User" Relationship="Self.FK_StoryPost_UserArchived" FromRole="StoryPost" ToRole="User" />
+          <NavigationProperty Name="User1" Relationship="Self.FK_StoryPost_UserCreated" FromRole="StoryPost" ToRole="User" />
+          <NavigationProperty Name="User2" Relationship="Self.FK_StoryPost_UserUpdated" FromRole="StoryPost" ToRole="User" />
+          <NavigationProperty Name="TextInsert" Relationship="Self.FK_TextInsert_StoryPost" FromRole="StoryPost" ToRole="TextInsert" />
+          <NavigationProperty Name="PostTag" Relationship="Self.PostTag_StoryPost" FromRole="StoryPost" ToRole="PostTag" />
+        </EntityType>
+        <EntityType Name="TextInsert">
+          <Key>
+            <PropertyRef Name="TextInsertID" />
+          </Key>
+          <Property Name="TextInsertID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BlogPostID" Type="Int32" />
+          <Property Name="StoryPostID" Type="Int32" />
+          <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="OrderNumber" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="ArchivedAt" Type="DateTime" Precision="3" />
+          <Property Name="ArchivedBy" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="BlogPost" Relationship="Self.FK_TextInsert_BlogPost" FromRole="TextInsert" ToRole="BlogPost" />
+          <NavigationProperty Name="StoryPost" Relationship="Self.FK_TextInsert_StoryPost" FromRole="TextInsert" ToRole="StoryPost" />
+          <NavigationProperty Name="User" Relationship="Self.FK_TextInsert_UserArchived" FromRole="TextInsert" ToRole="User" />
+          <NavigationProperty Name="User1" Relationship="Self.FK_TextInsert_UserCreated" FromRole="TextInsert" ToRole="User" />
+          <NavigationProperty Name="User2" Relationship="Self.FK_TextInsert_UserUpdated" FromRole="TextInsert" ToRole="User" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IsAdmin" Type="Boolean" />
+          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Username" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="DeactivatedAt" Type="DateTime" Precision="3" />
+          <Property Name="DeactivatedBy" Type="Int32" />
+          <Property Name="isActive" Type="Boolean" />
+          <NavigationProperty Name="BlogComment" Relationship="Self.FK_BlogComment_UserArchived" FromRole="User" ToRole="BlogComment" />
+          <NavigationProperty Name="BlogComment1" Relationship="Self.FK_BlogComment_UserCreated" FromRole="User" ToRole="BlogComment" />
+          <NavigationProperty Name="BlogComment2" Relationship="Self.FK_BlogComment_UserUpdated" FromRole="User" ToRole="BlogComment" />
+          <NavigationProperty Name="BlogPost" Relationship="Self.FK_BlogPost_UserArchived" FromRole="User" ToRole="BlogPost" />
+          <NavigationProperty Name="BlogPost1" Relationship="Self.FK_BlogPost_UserCreated" FromRole="User" ToRole="BlogPost" />
+          <NavigationProperty Name="BlogPost2" Relationship="Self.FK_BlogPost_UserUpdated" FromRole="User" ToRole="BlogPost" />
+          <NavigationProperty Name="Media" Relationship="Self.FK_Media_UserArchived" FromRole="User" ToRole="Media" />
+          <NavigationProperty Name="Media1" Relationship="Self.FK_Media_UserCreated" FromRole="User" ToRole="Media" />
+          <NavigationProperty Name="Media2" Relationship="Self.FK_Media_UserUpdated" FromRole="User" ToRole="Media" />
+          <NavigationProperty Name="MediaInsert" Relationship="Self.FK_MediaInsert_UserArchived" FromRole="User" ToRole="MediaInsert" />
+          <NavigationProperty Name="MediaInsert1" Relationship="Self.FK_MediaInsert_UserCreated" FromRole="User" ToRole="MediaInsert" />
+          <NavigationProperty Name="MediaInsert2" Relationship="Self.FK_MediaInsert_UserUpdated" FromRole="User" ToRole="MediaInsert" />
+          <NavigationProperty Name="PostTag" Relationship="Self.FK_PostTag_UserArchived" FromRole="User" ToRole="PostTag" />
+          <NavigationProperty Name="PostTag1" Relationship="Self.FK_PostTag_UserCreated" FromRole="User" ToRole="PostTag" />
+          <NavigationProperty Name="PostTag2" Relationship="Self.FK_PostTag_UserUpdated" FromRole="User" ToRole="PostTag" />
+          <NavigationProperty Name="Story" Relationship="Self.FK_Story_UserArchived" FromRole="User" ToRole="Story" />
+          <NavigationProperty Name="Story1" Relationship="Self.FK_Story_UserCreated" FromRole="User" ToRole="Story" />
+          <NavigationProperty Name="Story2" Relationship="Self.FK_Story_UserUpdated" FromRole="User" ToRole="Story" />
+          <NavigationProperty Name="StoryComment" Relationship="Self.FK_StoryComment_UserArchived" FromRole="User" ToRole="StoryComment" />
+          <NavigationProperty Name="StoryComment1" Relationship="Self.FK_StoryComment_UserCreated" FromRole="User" ToRole="StoryComment" />
+          <NavigationProperty Name="StoryComment2" Relationship="Self.FK_StoryComment_UserUpdated" FromRole="User" ToRole="StoryComment" />
+          <NavigationProperty Name="StoryPost" Relationship="Self.FK_StoryPost_UserArchived" FromRole="User" ToRole="StoryPost" />
+          <NavigationProperty Name="StoryPost1" Relationship="Self.FK_StoryPost_UserCreated" FromRole="User" ToRole="StoryPost" />
+          <NavigationProperty Name="StoryPost2" Relationship="Self.FK_StoryPost_UserUpdated" FromRole="User" ToRole="StoryPost" />
+          <NavigationProperty Name="TextInsert" Relationship="Self.FK_TextInsert_UserArchived" FromRole="User" ToRole="TextInsert" />
+          <NavigationProperty Name="TextInsert1" Relationship="Self.FK_TextInsert_UserCreated" FromRole="User" ToRole="TextInsert" />
+          <NavigationProperty Name="TextInsert2" Relationship="Self.FK_TextInsert_UserUpdated" FromRole="User" ToRole="TextInsert" />
+          <NavigationProperty Name="User1" Relationship="Self.FK_User_CreatedBy" FromRole="User" ToRole="User1" />
+          <NavigationProperty Name="User2" Relationship="Self.FK_User_CreatedBy" FromRole="User1" ToRole="User" />
+          <NavigationProperty Name="User11" Relationship="Self.FK_User_DeactivatedBy" FromRole="User" ToRole="User1" />
+          <NavigationProperty Name="User3" Relationship="Self.FK_User_DeactivatedBy" FromRole="User1" ToRole="User" />
+          <NavigationProperty Name="User12" Relationship="Self.FK_User_UpdatedBy" FromRole="User" ToRole="User1" />
+          <NavigationProperty Name="User4" Relationship="Self.FK_User_UpdatedBy" FromRole="User1" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_BlogComment_Blog">
+          <End Role="BlogPost" Type="Self.BlogPost" Multiplicity="1" />
+          <End Role="BlogComment" Type="Self.BlogComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BlogPost">
+              <PropertyRef Name="BlogPostID" />
+            </Principal>
+            <Dependent Role="BlogComment">
+              <PropertyRef Name="BlogPostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlogComment_BlogComment">
+          <End Role="BlogComment" Type="Self.BlogComment" Multiplicity="0..1" />
+          <End Role="BlogComment1" Type="Self.BlogComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BlogComment">
+              <PropertyRef Name="BlogCommentID" />
+            </Principal>
+            <Dependent Role="BlogComment1">
+              <PropertyRef Name="Parent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlogComment_UserArchived">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="BlogComment" Type="Self.BlogComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="BlogComment">
+              <PropertyRef Name="ArchivedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlogComment_UserCreated">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="BlogComment" Type="Self.BlogComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="BlogComment">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlogComment_UserUpdated">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="BlogComment" Type="Self.BlogComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="BlogComment">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlogPost_UserArchived">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="BlogPost" Type="Self.BlogPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="BlogPost">
+              <PropertyRef Name="ArchivedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlogPost_UserCreated">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="BlogPost" Type="Self.BlogPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="BlogPost">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlogPost_UserUpdated">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="BlogPost" Type="Self.BlogPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="BlogPost">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MediaInsert_BlogPost">
+          <End Role="BlogPost" Type="Self.BlogPost" Multiplicity="0..1" />
+          <End Role="MediaInsert" Type="Self.MediaInsert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BlogPost">
+              <PropertyRef Name="BlogPostID" />
+            </Principal>
+            <Dependent Role="MediaInsert">
+              <PropertyRef Name="BlogPostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TextInsert_BlogPost">
+          <End Role="BlogPost" Type="Self.BlogPost" Multiplicity="0..1" />
+          <End Role="TextInsert" Type="Self.TextInsert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BlogPost">
+              <PropertyRef Name="BlogPostID" />
+            </Principal>
+            <Dependent Role="TextInsert">
+              <PropertyRef Name="BlogPostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Media_MediaType">
+          <End Role="MediaType" Type="Self.MediaType" Multiplicity="0..1" />
+          <End Role="Media" Type="Self.Media" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MediaType">
+              <PropertyRef Name="MediaTypeID" />
+            </Principal>
+            <Dependent Role="Media">
+              <PropertyRef Name="MediaTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Media_UserArchived">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Media" Type="Self.Media" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Media">
+              <PropertyRef Name="ArchivedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Media_UserCreated">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Media" Type="Self.Media" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Media">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Media_UserUpdated">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Media" Type="Self.Media" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Media">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MediaInsert_Media">
+          <End Role="Media" Type="Self.Media" Multiplicity="1" />
+          <End Role="MediaInsert" Type="Self.MediaInsert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Media">
+              <PropertyRef Name="MediaID" />
+            </Principal>
+            <Dependent Role="MediaInsert">
+              <PropertyRef Name="MediaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MediaInsert_StoryPost">
+          <End Role="StoryPost" Type="Self.StoryPost" Multiplicity="0..1" />
+          <End Role="MediaInsert" Type="Self.MediaInsert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StoryPost">
+              <PropertyRef Name="StoryPostID" />
+            </Principal>
+            <Dependent Role="MediaInsert">
+              <PropertyRef Name="StoryPostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MediaInsert_UserArchived">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="MediaInsert" Type="Self.MediaInsert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="MediaInsert">
+              <PropertyRef Name="ArchivedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MediaInsert_UserCreated">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="MediaInsert" Type="Self.MediaInsert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="MediaInsert">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MediaInsert_UserUpdated">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="MediaInsert" Type="Self.MediaInsert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="MediaInsert">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PostTag_UserArchived">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="PostTag" Type="Self.PostTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="PostTag">
+              <PropertyRef Name="ArchivedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PostTag_UserCreated">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="PostTag" Type="Self.PostTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="PostTag">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PostTag_UserUpdated">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="PostTag" Type="Self.PostTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="PostTag">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Story_UserArchived">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Story" Type="Self.Story" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Story">
+              <PropertyRef Name="ArchivedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Story_UserCreated">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Story" Type="Self.Story" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Story">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Story_UserUpdated">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Story" Type="Self.Story" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Story">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StoryPost_Story">
+          <End Role="Story" Type="Self.Story" Multiplicity="1" />
+          <End Role="StoryPost" Type="Self.StoryPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Story">
+              <PropertyRef Name="StoryID" />
+            </Principal>
+            <Dependent Role="StoryPost">
+              <PropertyRef Name="StoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StoryComment_Story">
+          <End Role="StoryPost" Type="Self.StoryPost" Multiplicity="1" />
+          <End Role="StoryComment" Type="Self.StoryComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StoryPost">
+              <PropertyRef Name="StoryPostID" />
+            </Principal>
+            <Dependent Role="StoryComment">
+              <PropertyRef Name="StoryPostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StoryComment_StoryComment">
+          <End Role="StoryComment" Type="Self.StoryComment" Multiplicity="0..1" />
+          <End Role="StoryComment1" Type="Self.StoryComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StoryComment">
+              <PropertyRef Name="StoryCommentID" />
+            </Principal>
+            <Dependent Role="StoryComment1">
+              <PropertyRef Name="Parent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StoryComment_UserArchived">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="StoryComment" Type="Self.StoryComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="StoryComment">
+              <PropertyRef Name="ArchivedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StoryComment_UserCreated">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="StoryComment" Type="Self.StoryComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="StoryComment">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StoryComment_UserUpdated">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="StoryComment" Type="Self.StoryComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="StoryComment">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StoryPost_UserArchived">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="StoryPost" Type="Self.StoryPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="StoryPost">
+              <PropertyRef Name="ArchivedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StoryPost_UserCreated">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="StoryPost" Type="Self.StoryPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="StoryPost">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StoryPost_UserUpdated">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="StoryPost" Type="Self.StoryPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="StoryPost">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TextInsert_StoryPost">
+          <End Role="StoryPost" Type="Self.StoryPost" Multiplicity="0..1" />
+          <End Role="TextInsert" Type="Self.TextInsert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StoryPost">
+              <PropertyRef Name="StoryPostID" />
+            </Principal>
+            <Dependent Role="TextInsert">
+              <PropertyRef Name="StoryPostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TextInsert_UserArchived">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="TextInsert" Type="Self.TextInsert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="TextInsert">
+              <PropertyRef Name="ArchivedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TextInsert_UserCreated">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="TextInsert" Type="Self.TextInsert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="TextInsert">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TextInsert_UserUpdated">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="TextInsert" Type="Self.TextInsert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="TextInsert">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_CreatedBy">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="User1" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="User1">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_DeactivatedBy">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="User1" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="User1">
+              <PropertyRef Name="DeactivatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_UpdatedBy">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="User1" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="User1">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PostTag_BlogPost">
+          <End Role="BlogPost" Type="Self.BlogPost" Multiplicity="*" />
+          <End Role="PostTag" Type="Self.PostTag" Multiplicity="*" />
+        </Association>
+        <Association Name="PostTag_StoryPost">
+          <End Role="PostTag" Type="Self.PostTag" Multiplicity="*" />
+          <End Role="StoryPost" Type="Self.StoryPost" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BlogComment" EntityType="Self.BlogComment" />
+          <EntitySet Name="BlogPost" EntityType="Self.BlogPost" />
+          <EntitySet Name="Media" EntityType="Self.Media" />
+          <EntitySet Name="MediaInsert" EntityType="Self.MediaInsert" />
+          <EntitySet Name="MediaType" EntityType="Self.MediaType" />
+          <EntitySet Name="PostTag" EntityType="Self.PostTag" />
+          <EntitySet Name="Story" EntityType="Self.Story" />
+          <EntitySet Name="StoryComment" EntityType="Self.StoryComment" />
+          <EntitySet Name="StoryPost" EntityType="Self.StoryPost" />
+          <EntitySet Name="TextInsert" EntityType="Self.TextInsert" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <AssociationSet Name="FK_BlogComment_Blog" Association="Self.FK_BlogComment_Blog">
+            <End Role="BlogPost" EntitySet="BlogPost" />
+            <End Role="BlogComment" EntitySet="BlogComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlogComment_BlogComment" Association="Self.FK_BlogComment_BlogComment">
+            <End Role="BlogComment" EntitySet="BlogComment" />
+            <End Role="BlogComment1" EntitySet="BlogComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlogComment_UserArchived" Association="Self.FK_BlogComment_UserArchived">
+            <End Role="User" EntitySet="User" />
+            <End Role="BlogComment" EntitySet="BlogComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlogComment_UserCreated" Association="Self.FK_BlogComment_UserCreated">
+            <End Role="User" EntitySet="User" />
+            <End Role="BlogComment" EntitySet="BlogComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlogComment_UserUpdated" Association="Self.FK_BlogComment_UserUpdated">
+            <End Role="User" EntitySet="User" />
+            <End Role="BlogComment" EntitySet="BlogComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlogPost_UserArchived" Association="Self.FK_BlogPost_UserArchived">
+            <End Role="User" EntitySet="User" />
+            <End Role="BlogPost" EntitySet="BlogPost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlogPost_UserCreated" Association="Self.FK_BlogPost_UserCreated">
+            <End Role="User" EntitySet="User" />
+            <End Role="BlogPost" EntitySet="BlogPost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlogPost_UserUpdated" Association="Self.FK_BlogPost_UserUpdated">
+            <End Role="User" EntitySet="User" />
+            <End Role="BlogPost" EntitySet="BlogPost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MediaInsert_BlogPost" Association="Self.FK_MediaInsert_BlogPost">
+            <End Role="BlogPost" EntitySet="BlogPost" />
+            <End Role="MediaInsert" EntitySet="MediaInsert" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TextInsert_BlogPost" Association="Self.FK_TextInsert_BlogPost">
+            <End Role="BlogPost" EntitySet="BlogPost" />
+            <End Role="TextInsert" EntitySet="TextInsert" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Media_MediaType" Association="Self.FK_Media_MediaType">
+            <End Role="MediaType" EntitySet="MediaType" />
+            <End Role="Media" EntitySet="Media" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Media_UserArchived" Association="Self.FK_Media_UserArchived">
+            <End Role="User" EntitySet="User" />
+            <End Role="Media" EntitySet="Media" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Media_UserCreated" Association="Self.FK_Media_UserCreated">
+            <End Role="User" EntitySet="User" />
+            <End Role="Media" EntitySet="Media" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Media_UserUpdated" Association="Self.FK_Media_UserUpdated">
+            <End Role="User" EntitySet="User" />
+            <End Role="Media" EntitySet="Media" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MediaInsert_Media" Association="Self.FK_MediaInsert_Media">
+            <End Role="Media" EntitySet="Media" />
+            <End Role="MediaInsert" EntitySet="MediaInsert" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MediaInsert_StoryPost" Association="Self.FK_MediaInsert_StoryPost">
+            <End Role="StoryPost" EntitySet="StoryPost" />
+            <End Role="MediaInsert" EntitySet="MediaInsert" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MediaInsert_UserArchived" Association="Self.FK_MediaInsert_UserArchived">
+            <End Role="User" EntitySet="User" />
+            <End Role="MediaInsert" EntitySet="MediaInsert" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MediaInsert_UserCreated" Association="Self.FK_MediaInsert_UserCreated">
+            <End Role="User" EntitySet="User" />
+            <End Role="MediaInsert" EntitySet="MediaInsert" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MediaInsert_UserUpdated" Association="Self.FK_MediaInsert_UserUpdated">
+            <End Role="User" EntitySet="User" />
+            <End Role="MediaInsert" EntitySet="MediaInsert" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostTag_UserArchived" Association="Self.FK_PostTag_UserArchived">
+            <End Role="User" EntitySet="User" />
+            <End Role="PostTag" EntitySet="PostTag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostTag_UserCreated" Association="Self.FK_PostTag_UserCreated">
+            <End Role="User" EntitySet="User" />
+            <End Role="PostTag" EntitySet="PostTag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostTag_UserUpdated" Association="Self.FK_PostTag_UserUpdated">
+            <End Role="User" EntitySet="User" />
+            <End Role="PostTag" EntitySet="PostTag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Story_UserArchived" Association="Self.FK_Story_UserArchived">
+            <End Role="User" EntitySet="User" />
+            <End Role="Story" EntitySet="Story" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Story_UserCreated" Association="Self.FK_Story_UserCreated">
+            <End Role="User" EntitySet="User" />
+            <End Role="Story" EntitySet="Story" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Story_UserUpdated" Association="Self.FK_Story_UserUpdated">
+            <End Role="User" EntitySet="User" />
+            <End Role="Story" EntitySet="Story" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StoryPost_Story" Association="Self.FK_StoryPost_Story">
+            <End Role="Story" EntitySet="Story" />
+            <End Role="StoryPost" EntitySet="StoryPost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StoryComment_Story" Association="Self.FK_StoryComment_Story">
+            <End Role="StoryPost" EntitySet="StoryPost" />
+            <End Role="StoryComment" EntitySet="StoryComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StoryComment_StoryComment" Association="Self.FK_StoryComment_StoryComment">
+            <End Role="StoryComment" EntitySet="StoryComment" />
+            <End Role="StoryComment1" EntitySet="StoryComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StoryComment_UserArchived" Association="Self.FK_StoryComment_UserArchived">
+            <End Role="User" EntitySet="User" />
+            <End Role="StoryComment" EntitySet="StoryComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StoryComment_UserCreated" Association="Self.FK_StoryComment_UserCreated">
+            <End Role="User" EntitySet="User" />
+            <End Role="StoryComment" EntitySet="StoryComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StoryComment_UserUpdated" Association="Self.FK_StoryComment_UserUpdated">
+            <End Role="User" EntitySet="User" />
+            <End Role="StoryComment" EntitySet="StoryComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StoryPost_UserArchived" Association="Self.FK_StoryPost_UserArchived">
+            <End Role="User" EntitySet="User" />
+            <End Role="StoryPost" EntitySet="StoryPost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StoryPost_UserCreated" Association="Self.FK_StoryPost_UserCreated">
+            <End Role="User" EntitySet="User" />
+            <End Role="StoryPost" EntitySet="StoryPost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StoryPost_UserUpdated" Association="Self.FK_StoryPost_UserUpdated">
+            <End Role="User" EntitySet="User" />
+            <End Role="StoryPost" EntitySet="StoryPost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TextInsert_StoryPost" Association="Self.FK_TextInsert_StoryPost">
+            <End Role="StoryPost" EntitySet="StoryPost" />
+            <End Role="TextInsert" EntitySet="TextInsert" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TextInsert_UserArchived" Association="Self.FK_TextInsert_UserArchived">
+            <End Role="User" EntitySet="User" />
+            <End Role="TextInsert" EntitySet="TextInsert" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TextInsert_UserCreated" Association="Self.FK_TextInsert_UserCreated">
+            <End Role="User" EntitySet="User" />
+            <End Role="TextInsert" EntitySet="TextInsert" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TextInsert_UserUpdated" Association="Self.FK_TextInsert_UserUpdated">
+            <End Role="User" EntitySet="User" />
+            <End Role="TextInsert" EntitySet="TextInsert" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_CreatedBy" Association="Self.FK_User_CreatedBy">
+            <End Role="User" EntitySet="User" />
+            <End Role="User1" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_DeactivatedBy" Association="Self.FK_User_DeactivatedBy">
+            <End Role="User" EntitySet="User" />
+            <End Role="User1" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_UpdatedBy" Association="Self.FK_User_UpdatedBy">
+            <End Role="User" EntitySet="User" />
+            <End Role="User1" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="PostTag_BlogPost" Association="Self.PostTag_BlogPost">
+            <End Role="BlogPost" EntitySet="BlogPost" />
+            <End Role="PostTag" EntitySet="PostTag" />
+          </AssociationSet>
+          <AssociationSet Name="PostTag_StoryPost" Association="Self.PostTag_StoryPost">
+            <End Role="PostTag" EntitySet="PostTag" />
+            <End Role="StoryPost" EntitySet="StoryPost" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TLWebsiteDTEModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="BlogComment">
+            <EntityTypeMapping TypeName="TLWebsiteDTEModel.BlogComment">
+              <MappingFragment StoreEntitySet="BlogComment">
+                <ScalarProperty Name="BlogCommentID" ColumnName="BlogCommentID" />
+                <ScalarProperty Name="BlogPostID" ColumnName="BlogPostID" />
+                <ScalarProperty Name="Parent" ColumnName="Parent" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="ArchivedAt" ColumnName="ArchivedAt" />
+                <ScalarProperty Name="ArchivedBy" ColumnName="ArchivedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BlogPost">
+            <EntityTypeMapping TypeName="TLWebsiteDTEModel.BlogPost">
+              <MappingFragment StoreEntitySet="BlogPost">
+                <ScalarProperty Name="BlogPostID" ColumnName="BlogPostID" />
+                <ScalarProperty Name="Post_Number" ColumnName="Post_Number" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="ArchivedAt" ColumnName="ArchivedAt" />
+                <ScalarProperty Name="ArchivedBy" ColumnName="ArchivedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Media">
+            <EntityTypeMapping TypeName="TLWebsiteDTEModel.Media">
+              <MappingFragment StoreEntitySet="Media">
+                <ScalarProperty Name="MediaID" ColumnName="MediaID" />
+                <ScalarProperty Name="MediaTypeID" ColumnName="MediaTypeID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="MediaPath" ColumnName="MediaPath" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="ArchivedAt" ColumnName="ArchivedAt" />
+                <ScalarProperty Name="ArchivedBy" ColumnName="ArchivedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MediaInsert">
+            <EntityTypeMapping TypeName="TLWebsiteDTEModel.MediaInsert">
+              <MappingFragment StoreEntitySet="MediaInsert">
+                <ScalarProperty Name="MediaInsertID" ColumnName="MediaInsertID" />
+                <ScalarProperty Name="MediaID" ColumnName="MediaID" />
+                <ScalarProperty Name="BlogPostID" ColumnName="BlogPostID" />
+                <ScalarProperty Name="StoryPostID" ColumnName="StoryPostID" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="ArchivedAt" ColumnName="ArchivedAt" />
+                <ScalarProperty Name="ArchivedBy" ColumnName="ArchivedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MediaType">
+            <EntityTypeMapping TypeName="TLWebsiteDTEModel.MediaType">
+              <MappingFragment StoreEntitySet="MediaType">
+                <ScalarProperty Name="MediaTypeID" ColumnName="MediaTypeID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PostTag">
+            <EntityTypeMapping TypeName="TLWebsiteDTEModel.PostTag">
+              <MappingFragment StoreEntitySet="PostTag">
+                <ScalarProperty Name="PostTagID" ColumnName="PostTagID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="ArchivedAt" ColumnName="ArchivedAt" />
+                <ScalarProperty Name="ArchivedBy" ColumnName="ArchivedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Story">
+            <EntityTypeMapping TypeName="TLWebsiteDTEModel.Story">
+              <MappingFragment StoreEntitySet="Story">
+                <ScalarProperty Name="StoryID" ColumnName="StoryID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="ArchivedAt" ColumnName="ArchivedAt" />
+                <ScalarProperty Name="ArchivedBy" ColumnName="ArchivedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StoryComment">
+            <EntityTypeMapping TypeName="TLWebsiteDTEModel.StoryComment">
+              <MappingFragment StoreEntitySet="StoryComment">
+                <ScalarProperty Name="StoryCommentID" ColumnName="StoryCommentID" />
+                <ScalarProperty Name="StoryPostID" ColumnName="StoryPostID" />
+                <ScalarProperty Name="Parent" ColumnName="Parent" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="ArchivedAt" ColumnName="ArchivedAt" />
+                <ScalarProperty Name="ArchivedBy" ColumnName="ArchivedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StoryPost">
+            <EntityTypeMapping TypeName="TLWebsiteDTEModel.StoryPost">
+              <MappingFragment StoreEntitySet="StoryPost">
+                <ScalarProperty Name="StoryPostID" ColumnName="StoryPostID" />
+                <ScalarProperty Name="StoryID" ColumnName="StoryID" />
+                <ScalarProperty Name="Post_Number" ColumnName="Post_Number" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="ArchivedAt" ColumnName="ArchivedAt" />
+                <ScalarProperty Name="ArchivedBy" ColumnName="ArchivedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TextInsert">
+            <EntityTypeMapping TypeName="TLWebsiteDTEModel.TextInsert">
+              <MappingFragment StoreEntitySet="TextInsert">
+                <ScalarProperty Name="TextInsertID" ColumnName="TextInsertID" />
+                <ScalarProperty Name="BlogPostID" ColumnName="BlogPostID" />
+                <ScalarProperty Name="StoryPostID" ColumnName="StoryPostID" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="ArchivedAt" ColumnName="ArchivedAt" />
+                <ScalarProperty Name="ArchivedBy" ColumnName="ArchivedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="TLWebsiteDTEModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DeactivatedAt" ColumnName="DeactivatedAt" />
+                <ScalarProperty Name="DeactivatedBy" ColumnName="DeactivatedBy" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="PostTag_BlogPost" TypeName="TLWebsiteDTEModel.PostTag_BlogPost" StoreEntitySet="PostTag_BlogPost">
+            <EndProperty Name="BlogPost">
+              <ScalarProperty Name="BlogPostID" ColumnName="BlogPostID" />
+            </EndProperty>
+            <EndProperty Name="PostTag">
+              <ScalarProperty Name="PostTagID" ColumnName="PostTagID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="PostTag_StoryPost" TypeName="TLWebsiteDTEModel.PostTag_StoryPost" StoreEntitySet="PostTag_StoryPost">
+            <EndProperty Name="PostTag">
+              <ScalarProperty Name="PostTagID" ColumnName="PostTagID" />
+            </EndProperty>
+            <EndProperty Name="StoryPost">
+              <ScalarProperty Name="StoryPostID" ColumnName="StoryPostID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
