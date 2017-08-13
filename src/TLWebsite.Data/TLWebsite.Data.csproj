@@ -91,8 +91,14 @@
     <Compile Include="DTO\StoryPost.cs" />
     <Compile Include="DTO\TextInsert.cs" />
     <Compile Include="DTO\User.cs" />
+    <Compile Include="Interfaces\IBlogCommentRepository.cs" />
+    <Compile Include="Interfaces\IBlogPostRepository.cs" />
     <Compile Include="Interfaces\ILogger.cs" />
     <Compile Include="Interfaces\ILogLevel.cs" />
+    <Compile Include="Interfaces\IMediaRepository.cs" />
+    <Compile Include="Interfaces\IStoryCommentRepository.cs" />
+    <Compile Include="Interfaces\IStoryRepository.cs" />
+    <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="LogLevel.cs" />
     <Compile Include="Media.cs">
