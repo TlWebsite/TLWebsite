@@ -80,6 +80,7 @@
     <Compile Include="BlogPost.cs">
       <DependentUpon>TLWebsiteDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="DTO\AllComments.cs" />
     <Compile Include="DTO\BlogComment.cs" />
     <Compile Include="DTO\BlogPost.cs" />
     <Compile Include="DTO\Media.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="DTO\StoryPost.cs" />
     <Compile Include="DTO\TextInsert.cs" />
     <Compile Include="DTO\User.cs" />
+    <Compile Include="Interfaces\IBaseRepository.cs" />
     <Compile Include="Interfaces\IBlogCommentRepository.cs" />
     <Compile Include="Interfaces\IBlogPostRepository.cs" />
     <Compile Include="Interfaces\ILogger.cs" />
@@ -114,6 +116,7 @@
       <DependentUpon>TLWebsiteDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Story.cs">
       <DependentUpon>TLWebsiteDB.tt</DependentUpon>
     </Compile>
