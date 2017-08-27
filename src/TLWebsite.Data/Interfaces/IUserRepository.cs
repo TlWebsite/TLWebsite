@@ -5,19 +5,13 @@ namespace TLWebsite.Data.Interfaces
 {
     public interface IUserRepository : IBaseRepository<User>
     {
+        IEnumerable<User> GetAllActive();
 
-        List<User> GetAllActive();
-
-        List<User> GetAllInactive();
+        IEnumerable<User> GetAllInactive();
 
         User GetCurrentUser();
 
-        List<DTO.AllComments> AllUserComments(int userID);
+        User GetFullUserInfo(int userID);
 
-        List<DTO.AllComments> AllUserComments(DTO.User user);
-
-        List<DTO.AllComments> AllBulkUserComments(List<int> userIDs);
-
-        List<DTO.AllComments> AllBulkUserComments(List<DTO.User> users);
     }
 }

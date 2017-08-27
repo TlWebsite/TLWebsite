@@ -66,6 +66,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -97,9 +98,13 @@
     <Compile Include="Interfaces\IBlogPostRepository.cs" />
     <Compile Include="Interfaces\ILogger.cs" />
     <Compile Include="Interfaces\ILogLevel.cs" />
+    <Compile Include="Interfaces\IMediaInsertRepository.cs" />
     <Compile Include="Interfaces\IMediaRepository.cs" />
+    <Compile Include="Interfaces\IPostTagRepository.cs" />
     <Compile Include="Interfaces\IStoryCommentRepository.cs" />
+    <Compile Include="Interfaces\IStoryPostRepository.cs" />
     <Compile Include="Interfaces\IStoryRepository.cs" />
+    <Compile Include="Interfaces\ITextInsertRepository.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="LogLevel.cs" />
@@ -149,6 +154,7 @@
     </Compile>
     <Compile Include="Utils\Mapper.cs" />
     <Compile Include="Utils\LogLevelsEnum.cs" />
+    <Compile Include="Utils\MediaTypeEnum.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
